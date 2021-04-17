@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gsmapp.LoginController">
     <left>
         <AnchorPane prefHeight="400.0" prefWidth="250.0" BorderPane.alignment="CENTER">
             <children>
@@ -35,10 +35,10 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="usernameTextField" layoutX="110.0" layoutY="105.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" />
-                <PasswordField fx:id="enterPasswordField" layoutX="110.0" layoutY="145.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" />
-                <Button fx:id="loginButton" layoutX="43.0" layoutY="317.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="257.0" text="Login" />
-                <Button fx:id="signupButton" layoutX="43.0" layoutY="352.0" mnemonicParsing="false" onAction="#signupButtonOnAction" prefHeight="26.0" prefWidth="257.0" text="Sign Up" />
+                <TextField fx:id="username" layoutX="110.0" layoutY="105.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" />
+                <PasswordField fx:id="password" layoutX="110.0" layoutY="145.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" />
+                <Button fx:id="loginButton" layoutX="43.0" layoutY="317.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="257.0" text="Login" />
+                <Button fx:id="signupButton" layoutX="43.0" layoutY="352.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="257.0" text="Sign Up" />
                 <ImageView fx:id="lockImageView" fitHeight="49.0" fitWidth="54.0" layoutX="145.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../images/lacat.png" />
@@ -49,7 +49,6 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <ChoiceBox layoutX="110.0" layoutY="187.0" prefWidth="150.0" />
                 <Label layoutX="26.0" layoutY="234.0" prefHeight="20.0" prefWidth="79.0" text="Access code">
                     <font>
                         <Font size="14.0" />
@@ -61,6 +60,9 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
+            <Label layoutX="36.0" layoutY="74.0" text="DB Status" />
+            <Label fx:id="dbstatus" layoutX="109.0" layoutY="74.0" prefHeight="18.0" prefWidth="214.0" />
+            <ComboBox fx:id="combobox" layoutX="110.0" layoutY="188.0" prefHeight="26.0" prefWidth="200.0" promptText="Client / Manager" />
             </children>
         </AnchorPane>
     </right>
