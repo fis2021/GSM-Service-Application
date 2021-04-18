@@ -2,14 +2,16 @@ package gsmapp;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
-import java.io.File;
+import managers.ManagerController;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,12 +24,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private Label loginMessageLabel;
-
-    @FXML
-    private ImageView brandingImageView;
-
-    @FXML
-    private ImageView lockImageView;
 
     @FXML
     private TextField username;
@@ -44,28 +40,73 @@ public class LoginController implements Initializable {
     @FXML
     private Button loginButton;
 
-    @Override
+    //@Override
     public void initialize(URL url, ResourceBundle rb){
         if(this.loginModel.isDatabaseConnected()){
             this.dbstatus.setText("Connected");
         }else{
             this.dbstatus.setText("Not connected");
         }
-
         this.combobox.setItems(FXCollections.observableArrayList(option.values()));
     }
 
     @FXML
     public void Login(ActionEvent event){
-        System.out.println("aaa");
+        try{
+            if(this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option)this.combobox.getValue()).toString())){
+                switch (((option)this.combobox.getValue()).toString()) {
+                    case "Manager":
+                        managerLogin();
+                        break;
+                    case "Client":
+                        clientLogin();
+                        break;
+                }
+            }
+            else{
+                this.loginMessageLabel.setText("Wrong credentials");
+            }
+
+        }catch (Exception localException) {
+
+        }
     }
 
     public void clientLogin(){
+        try{
+            Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
+            Parent viewClientPage = FXMLLoader.load(getClass().getClassLoader().getResource("clientFXML.fxml"));
+            Scene scene = new Scene(viewClientPage);
+            stage.setScene(scene);
+            stage.show();
 
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
 
     public void managerLogin(){
+        try{
+            Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
+            Parent viewManagerPage = FXMLLoader.load(getClass().getClassLoader().getResource("managerFXML.fxml"));
+            Scene scene = new Scene(viewManagerPage);
+            stage.setScene(scene);
+            stage.show();
 
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
+    public void Signup(ActionEvent event){
+        try{
+            Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
+            Parent viewSignupPage = FXMLLoader.load(getClass().getClassLoader().getResource("signup.fxml"));
+            Scene scene = new Scene(viewSignupPage);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception localException) {
+
+        }
+    }
 }

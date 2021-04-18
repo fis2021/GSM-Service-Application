@@ -1,7 +1,7 @@
 package gsmapp;
 
 public enum option {
-    Client , Manger;
+    Client , Manager;
 
     private option(){}
 

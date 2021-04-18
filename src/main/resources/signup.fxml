@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: EDDDD4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gsmapp.SignupController">
+   <children>
+      <Label layoutX="84.0" layoutY="166.0" text="Firstname">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="214.0" text="Lastname">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="261.0" text="Username">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="311.0" text="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="359.0" text="Confirm password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="202.0" layoutY="165.0" promptText="Firstname">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField layoutX="201.0" layoutY="213.0" promptText="Lastname">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField layoutX="201.0" layoutY="260.0" promptText="Username">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <PasswordField layoutX="202.0" layoutY="310.0" promptText="****">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <PasswordField layoutX="202.0" layoutY="358.0">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <Label alignment="CENTER" prefHeight="115.0" prefWidth="800.0" style="-fx-background-color: #009292;" text="  USER REGISTRATION" textFill="#283d3b">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="115.0" fitWidth="112.0" layoutX="20.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/signup.png" />
+         </image>
+      </ImageView>
+      <ComboBox layoutX="201.0" layoutY="404.0" opacity="0.8" prefHeight="26.0" prefWidth="174.0" promptText="Client / Manager" />
+      <Label layoutX="105.0" layoutY="403.0" text="Role">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="452.0" text="Access code">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="202.0" layoutY="451.0" promptText="4 digit access code">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <Label layoutX="407.0" layoutY="363.0" text="Passwords do not match!" textFill="#c44536">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="502.0" text="Account created successfully!" textFill="#772e25">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="226.0" layoutY="497.0" mnemonicParsing="false" style="-fx-background-color: #009292;" text="Create account" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
