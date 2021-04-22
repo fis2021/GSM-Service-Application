@@ -88,8 +88,8 @@ public class LoginController implements Initializable {
     public void managerLogin(){
         try{
             Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
-            Parent viewManagerPage = FXMLLoader.load(getClass().getClassLoader().getResource("managerFXML.fxml"));
-            Scene scene = new Scene(viewManagerPage);
+            Parent viewManagerDashboard = FXMLLoader.load(getClass().getClassLoader().getResource("managerFXML.fxml"));
+            Scene scene = new Scene(viewManagerDashboard);
             stage.setScene(scene);
             stage.show();
 
