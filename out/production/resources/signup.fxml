@@ -10,19 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: EDDDD4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gsmapp.SignupController">
+<AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: f3f0b3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gsmapp.SignupController">
    <children>
-      <Label layoutX="84.0" layoutY="166.0" text="Firstname">
+      <Label layoutX="85.0" layoutY="166.0" text="First Name">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="86.0" layoutY="214.0" text="Lastname">
+      <Label layoutX="86.0" layoutY="214.0" text="Last Name">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="261.0" text="Username">
+      <Label layoutX="84.0" layoutY="261.0" text="Username">
          <font>
             <Font size="18.0" />
          </font>
@@ -37,11 +37,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="202.0" layoutY="165.0" promptText="Firstname">
+      <TextField layoutX="202.0" layoutY="165.0" promptText="First Name">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextField layoutX="201.0" layoutY="213.0" promptText="Lastname">
+      <TextField layoutX="201.0" layoutY="213.0" promptText="Last Name">
          <font>
             <Font size="14.0" />
          </font></TextField>
@@ -82,12 +82,12 @@
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <Label layoutX="407.0" layoutY="363.0" text="Passwords do not match!" textFill="#c44536">
+      <Label layoutX="407.0" layoutY="363.0" text="Passwords do not match!" textFill="#f71500">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="395.0" layoutY="502.0" text="Account created successfully!" textFill="#772e25">
+      <Label layoutX="395.0" layoutY="502.0" text="Account created successfully!" textFill="#f71500">
          <font>
             <Font size="14.0" />
          </font>
