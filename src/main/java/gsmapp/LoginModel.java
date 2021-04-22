@@ -5,17 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dbUtil.dbConnection;
+import Config.Config;
+import dbUtil.Select;
+import dbUtil.dbConnect;
+//import dbUtil.dbConnection;
 
 public class LoginModel {
     Connection connection;
 
     public LoginModel(){
-        try{
-            this.connection = dbConnection.getConnection();
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
+
+        this.connection = dbConnect.connect(Config.SQCONN);
+
         if (this.connection == null) {
             System.exit(1);
         }
@@ -27,36 +28,22 @@ public class LoginModel {
 
     public boolean isLogin(String user, String pass, String opt)throws Exception{
 
-        PreparedStatement pr = null;
-        ResultSet rs = null;
 
         String sql = "SELECT * FROM login where username = ? and password = ? and division = ?";
+        String sql_check_username = "SELECT * FROM users WHERE username = " + "\'" + user + "\'";
+        String sql_check_password = "SELECT * FROM users WHERE password = " + "\'" + pass + "\'";
+        String sql_check_role =  "SELECT * FROM users WHERE role = " + "\'" + opt + "\'";
+        String checkgetUsername = Select.CheckEntry(Config.SQCONN, sql_check_username);
+        String checkgetPassword = Select.CheckEntry(Config.SQCONN, sql_check_password);
+        String checkgetRole = Select.CheckEntry(Config.SQCONN, sql_check_role);
 
-        try{
-
-            pr = this.connection.prepareStatement(sql);
-            pr.setString(1, user);
-            pr.setString(2, pass);
-            pr.setString(3, opt);
-
-            rs = pr.executeQuery();
-
-            boolean boll1;
-
-            if (rs.next()) {
-                return true;
-            }
-            return false;
+        if(checkgetUsername == "1" && checkgetPassword == "1" && checkgetRole == "1") {
+            return true;
         }
-        catch (SQLException ex) {
+        else {
             return false;
         }
 
-        finally {
-            {
-                pr.close();
-                rs.close();
-            }
-        }
+
     }
 }

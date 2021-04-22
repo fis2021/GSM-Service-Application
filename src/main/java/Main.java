@@ -1,3 +1,6 @@
+import dbUtil.Select;
+//import dbUtil.dbConnection;
+import gsmapp.SignupModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,5 +22,6 @@ public class Main extends Application {
         primaryStage.setTitle("GSM Service");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
+//        SignupModel.registerUser("ana","are","mere","hello","world","cioaca");
+   }
 }

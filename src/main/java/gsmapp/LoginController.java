@@ -1,5 +1,6 @@
 package gsmapp;
 
+import Encryption.MD5;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,10 +51,13 @@ public class LoginController implements Initializable {
         this.combobox.setItems(FXCollections.observableArrayList(option.values()));
     }
 
+
+
     @FXML
     public void Login(ActionEvent event){
+        String hashed_password = MD5.getMd5(this.password.getText());
         try{
-            if(this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option)this.combobox.getValue()).toString())){
+            if(this.loginModel.isLogin(this.username.getText(), hashed_password, ((option)this.combobox.getValue()).toString())){
                 switch (((option)this.combobox.getValue()).toString()) {
                     case "Manager":
                         managerLogin();
