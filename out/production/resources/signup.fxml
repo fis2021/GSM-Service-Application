@@ -37,23 +37,23 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="202.0" layoutY="165.0" promptText="First Name">
+      <TextField fx:id="fnameInput" layoutX="202.0" layoutY="165.0" promptText="First Name">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextField layoutX="201.0" layoutY="213.0" promptText="Last Name">
+      <TextField fx:id="lnameInput" layoutX="201.0" layoutY="213.0" promptText="Last Name">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextField layoutX="201.0" layoutY="260.0" promptText="Username">
+      <TextField fx:id="usernameInput" layoutX="201.0" layoutY="260.0" promptText="Username">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <PasswordField layoutX="202.0" layoutY="310.0" promptText="****">
+      <PasswordField fx:id="passwordInput" layoutX="202.0" layoutY="310.0" promptText="******">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <PasswordField layoutX="202.0" layoutY="358.0" promptText="****">
+      <PasswordField fx:id="confirmPassInput" layoutX="202.0" layoutY="358.0" promptText="******">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
@@ -67,7 +67,7 @@
             <Image url="@../../../images/signup.png" />
          </image>
       </ImageView>
-      <ComboBox layoutX="201.0" layoutY="404.0" opacity="0.8" prefHeight="26.0" prefWidth="174.0" promptText="Client / Manager" />
+      <ComboBox fx:id="comboboxInput" layoutX="201.0" layoutY="404.0" opacity="0.8" prefHeight="26.0" prefWidth="174.0" promptText="Client / Manager" />
       <Label layoutX="105.0" layoutY="403.0" text="Role">
          <font>
             <Font size="18.0" />
@@ -78,23 +78,48 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <PasswordField layoutX="202.0" layoutY="451.0" promptText="4 digit access code">
+      <PasswordField fx:id="codeInput" layoutX="202.0" layoutY="451.0" promptText="4 digit access code">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <Label layoutX="407.0" layoutY="363.0" text="Passwords do not match!" textFill="#f71500">
+      <Label fx:id="passNotMatchLabel" layoutX="400.0" layoutY="363.0" textFill="#f71500">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="395.0" layoutY="502.0" text="Account created successfully!" textFill="#f71500">
+      <Label fx:id="accessWarning" layoutX="400.0" layoutY="456.0" textFill="#f71500">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="226.0" layoutY="497.0" mnemonicParsing="false" style="-fx-background-color: #009292;" text="Create account" textFill="WHITE">
+      <Button fx:id="createAcc" layoutX="226.0" layoutY="497.0" mnemonicParsing="false" onAction="#onSignup" style="-fx-background-color: #009292;" text="Create account" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
+      <Label fx:id="roleWarning" layoutX="400.0" layoutY="408.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordWarning" layoutX="400.0" layoutY="316.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameWarning" layoutX="400.0" layoutY="267.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameWarning" layoutX="400.0" layoutY="171.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameWarning" layoutX="400.0" layoutY="219.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

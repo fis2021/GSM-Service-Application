@@ -1,5 +1,6 @@
 package gsmapp;
 
+import Encryption.MD5;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,10 +51,13 @@ public class LoginController implements Initializable {
         this.combobox.setItems(FXCollections.observableArrayList(option.values()));
     }
 
+
+
     @FXML
     public void Login(ActionEvent event){
+        String hashed_password = MD5.getMd5(this.password.getText());
         try{
-            if(this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option)this.combobox.getValue()).toString())){
+            if(this.loginModel.isLogin(this.username.getText(), hashed_password, ((option)this.combobox.getValue()).toString())){
                 switch (((option)this.combobox.getValue()).toString()) {
                     case "Manager":
                         managerLogin();
@@ -75,7 +79,7 @@ public class LoginController implements Initializable {
     public void clientLogin(){
         try{
             Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
-            Parent viewClientPage = FXMLLoader.load(getClass().getClassLoader().getResource("clientFXML.fxml"));
+            Parent viewClientPage = FXMLLoader.load(getClass().getClassLoader().getResource("clientDashboard.fxml"));
             Scene scene = new Scene(viewClientPage);
             stage.setScene(scene);
             stage.show();
@@ -88,7 +92,7 @@ public class LoginController implements Initializable {
     public void managerLogin(){
         try{
             Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
-            Parent viewManagerDashboard = FXMLLoader.load(getClass().getClassLoader().getResource("managerFXML.fxml"));
+            Parent viewManagerDashboard = FXMLLoader.load(getClass().getClassLoader().getResource("managerDashboard.fxml"));
             Scene scene = new Scene(viewManagerDashboard);
             stage.setScene(scene);
             stage.show();
