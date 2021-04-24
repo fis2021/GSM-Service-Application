@@ -16,7 +16,7 @@ public class SignupModel {
     }
 
 
-    public static void registerUser(String firstname,String lastname, String username,
+    public static String registerUser(String firstname,String lastname, String username,
                              String password,String role, String accsesscode) {
 
         if(accsesscode.equals(Config.ACESS_CODE)) {
@@ -36,10 +36,12 @@ public class SignupModel {
 
         if(checkgetUsername == "0") {
             Insert.Insert(dbPath,tableName,parameterList,valueList);
+            return "0";
         }
         else {
             //afisezi in interfata
-            System.out.println("CONTUL EXISTA DEJA");
+            //System.out.println("CONTUL EXISTA DEJA");
+            return "1";
         }
 
     }

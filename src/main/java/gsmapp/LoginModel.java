@@ -43,7 +43,5 @@ public class LoginModel {
         else {
             return false;
         }
-
-
     }
 }

@@ -25,8 +25,6 @@ public class Insert {
         } finally {
             dbConnect.closeConnection();
         }
-
-
     }
 
 }
