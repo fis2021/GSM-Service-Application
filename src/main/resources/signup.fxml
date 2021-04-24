@@ -49,11 +49,11 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <PasswordField fx:id="passwordInput" layoutX="202.0" layoutY="310.0" promptText="****">
+      <PasswordField fx:id="passwordInput" layoutX="202.0" layoutY="310.0" promptText="******">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <PasswordField fx:id="confirmPassInput" layoutX="202.0" layoutY="358.0" promptText="****">
+      <PasswordField fx:id="confirmPassInput" layoutX="202.0" layoutY="358.0" promptText="******">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
@@ -82,12 +82,12 @@
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <Label layoutX="407.0" layoutY="363.0" text="Passwords do not match!" textFill="#f71500">
+      <Label fx:id="passNotMatchLabel" layoutX="400.0" layoutY="363.0" textFill="#f71500">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="395.0" layoutY="502.0" text="Account created successfully!" textFill="#f71500">
+      <Label fx:id="accessWarning" layoutX="400.0" layoutY="456.0" textFill="#f71500">
          <font>
             <Font size="14.0" />
          </font>
@@ -96,5 +96,30 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
+      <Label fx:id="roleWarning" layoutX="400.0" layoutY="408.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordWarning" layoutX="400.0" layoutY="316.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameWarning" layoutX="400.0" layoutY="267.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameWarning" layoutX="400.0" layoutY="171.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameWarning" layoutX="400.0" layoutY="219.0" textFill="#f71500">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
