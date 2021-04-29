@@ -36,10 +36,10 @@
                               <TableView prefHeight="500.0" prefWidth="580.0">
                                 <columns>
                                   <TableColumn prefWidth="75.0" text="Name" />
-                                  <TableColumn prefWidth="75.0" text="Username" />
-                                    <TableColumn prefWidth="75.0" text="Device" />
-                                    <TableColumn prefWidth="75.0" text="Model" />
-                                    <TableColumn prefWidth="124.0" text="Problem" />
+                                  <TableColumn prefWidth="112.800048828125" text="Username" />
+                                    <TableColumn prefWidth="77.60003662109375" text="Device" />
+                                    <TableColumn prefWidth="83.20001220703125" text="Model" />
+                                    <TableColumn prefWidth="85.5999755859375" text="Problem" />
                                 </columns>
                               </TableView>
                            </children>
@@ -67,10 +67,10 @@
                               <TableView prefHeight="500.0" prefWidth="580.0">
                                  <columns>
                                     <TableColumn prefWidth="75.0" text="Name" />
-                                    <TableColumn prefWidth="75.0" text="Username" />
-                                    <TableColumn prefWidth="75.0" text="Device" />
-                                    <TableColumn prefWidth="75.0" text="Model" />
-                                    <TableColumn prefWidth="124.0" text="Problem" />
+                                    <TableColumn prefWidth="95.20001220703125" text="Username" />
+                                    <TableColumn prefWidth="88.0" text="Device" />
+                                    <TableColumn prefWidth="80.79998779296875" text="Model" />
+                                    <TableColumn prefWidth="97.60003662109375" text="Problem" />
                                  </columns>
                               </TableView>
                            </children>
@@ -88,10 +88,10 @@
                               <TableView prefHeight="500.0" prefWidth="580.0">
                                  <columns>
                                     <TableColumn prefWidth="75.0" text="Name" />
-                                    <TableColumn prefWidth="75.0" text="Username" />
-                                    <TableColumn prefWidth="75.0" text="Device" />
-                                    <TableColumn prefWidth="75.0" text="Model" />
-                                    <TableColumn prefWidth="124.0" text="Problem" />
+                                    <TableColumn prefWidth="100.0" text="Username" />
+                                    <TableColumn prefWidth="80.79998779296875" text="Device" />
+                                    <TableColumn prefWidth="75.20001220703125" text="Model" />
+                                    <TableColumn prefWidth="95.20001220703125" text="Problem" />
                                  </columns>
                               </TableView>
                            </children>
