@@ -95,18 +95,19 @@
                            <children>
                               <TableView fx:id="refusedtable" prefHeight="500.0" prefWidth="1028.0">
                                  <columns>
-                                    <TableColumn prefWidth="70.0" text="Name" />
-                                    <TableColumn prefWidth="125.0" text="Username" />
-                                    <TableColumn prefWidth="110.0" text="Device" />
-                                    <TableColumn prefWidth="85.0" text="Model" />
-                                    <TableColumn prefWidth="230.0" text="Problem" />
-                                    <TableColumn prefWidth="130.0" text="Time slot" />
-                                    <TableColumn prefWidth="112.80002441406248" text="Status" />
-                                    <TableColumn prefWidth="112.80002441406248" text="Progress" />
+                                    <TableColumn fx:id="idcolumn3" prefWidth="70.0" text="ID" />
+                                    <TableColumn fx:id="usernamecolumn3" prefWidth="125.0" text="Username" />
+                                    <TableColumn fx:id="brandcolumn3" prefWidth="110.0" text="Brand" />
+                                    <TableColumn fx:id="modelcolumn3" prefWidth="85.0" text="Model" />
+                                    <TableColumn fx:id="problemcolumn3" prefWidth="230.0" text="Problem" />
+                                    <TableColumn fx:id="timecolumn3" prefWidth="130.0" text="Time slot" />
+                                    <TableColumn fx:id="statuscolumn3" prefWidth="112.80002441406248" text="Status" />
+                                    <TableColumn fx:id="progresscolumn3" prefWidth="112.80002441406248" text="Progress" />
                                  </columns>
                               </TableView>
                            </children>
                         </HBox>
+                        <Button fx:id="loadrefused" layoutX="1066.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadRefusedData" text="Load Refused" />
                      </children>
                   </AnchorPane>
                </content>

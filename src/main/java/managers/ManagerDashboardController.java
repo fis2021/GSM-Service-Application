@@ -79,14 +79,44 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TableColumn<RequestData, String> progresscolumn2;
 
+    //refused table
+
+    @FXML
+    private TableView<RequestData> refusedtable;
+
+    @FXML
+    private TableColumn<RequestData, Integer> idcolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> usernamecolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> brandcolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> modelcolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> problemcolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> timecolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> statuscolumn3;
+
+    @FXML
+    private TableColumn<RequestData, String> progresscolumn3;
 
 
     private dbConnect dc;
     private ObservableList<RequestData> data;
     private ObservableList<RequestData> data2;
+    private ObservableList<RequestData> data3;
 
     private String sql = "SELECT * FROM requests WHERE status LIKE 'Pending'";
     private String sql2 = "SELECT * FROM requests WHERE status LIKE 'Accepted'";
+    private String sql3 = "SELECT * FROM requests WHERE status LIKE 'Refused'";
 
 
     public void initialize(URL url, ResourceBundle rb){
@@ -154,6 +184,37 @@ public class ManagerDashboardController implements Initializable {
 
         this.acceptedtable.setItems(null);
         this.acceptedtable.setItems(this.data2);
+    }
+
+    @FXML
+    private void loadRefusedData(ActionEvent event) throws SQLException {
+        try{
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            this.data3 = FXCollections.observableArrayList();
+
+            ResultSet rs = conn.createStatement().executeQuery(sql3);
+            while(rs.next()){
+                this.data3.add(new RequestData(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7
+                ),rs.getString(8)));
+
+            }
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+
+        this.idcolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,Integer>("ID"));
+        this.usernamecolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("username"));
+        this.brandcolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("brand"));
+        this.modelcolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("model"));
+        this.problemcolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("problem"));
+        this.timecolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("interval"));
+        this.statuscolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("status"));
+        this.progresscolumn3.setCellValueFactory(new PropertyValueFactory<RequestData,String>("progress"));
+
+
+        this.refusedtable.setItems(null);
+        this.refusedtable.setItems(this.data3);
     }
 
 
