@@ -21,8 +21,9 @@ import java.util.ResourceBundle;
 
 public class ManagerDashboardController implements Initializable {
 
+    ///pending table
     @FXML
-    private TableView<RequestData> requesttable;
+    private TableView<RequestData> pendingtable;
 
     @FXML
     private TableColumn<RequestData, Integer> idcolumn;
@@ -48,10 +49,45 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TableColumn<RequestData, String> progresscolumn;
 
+
+    ///accepted table
+
+    @FXML
+    private TableView<RequestData> acceptedtable;
+
+    @FXML
+    private TableColumn<RequestData, Integer> idcolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> usernamecolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> brandcolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> modelcolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> problemcolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> timecolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> statuscolumn2;
+
+    @FXML
+    private TableColumn<RequestData, String> progresscolumn2;
+
+
+
     private dbConnect dc;
     private ObservableList<RequestData> data;
+    private ObservableList<RequestData> data2;
 
-    private String sql = "SELECT * FROM requests WHERE status LIKE 'Pending'  ";
+    private String sql = "SELECT * FROM requests WHERE status LIKE 'Pending'";
+    private String sql2 = "SELECT * FROM requests WHERE status LIKE 'Accepted'";
+
 
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
@@ -84,11 +120,41 @@ public class ManagerDashboardController implements Initializable {
         this.progresscolumn.setCellValueFactory(new PropertyValueFactory<RequestData,String>("progress"));
 
 
-        this.requesttable.setItems(null);
-        this.requesttable.setItems(this.data);
+        this.pendingtable.setItems(null);
+        this.pendingtable.setItems(this.data);
     }
 
 
+    @FXML
+    private void loadAcceptedData(ActionEvent event) throws SQLException {
+        try{
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            this.data2 = FXCollections.observableArrayList();
+
+            ResultSet rs = conn.createStatement().executeQuery(sql2);
+            while(rs.next()){
+                this.data2.add(new RequestData(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7
+                ),rs.getString(8)));
+
+            }
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+
+        this.idcolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,Integer>("ID"));
+        this.usernamecolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("username"));
+        this.brandcolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("brand"));
+        this.modelcolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("model"));
+        this.problemcolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("problem"));
+        this.timecolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("interval"));
+        this.statuscolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("status"));
+        this.progresscolumn2.setCellValueFactory(new PropertyValueFactory<RequestData,String>("progress"));
+
+
+        this.acceptedtable.setItems(null);
+        this.acceptedtable.setItems(this.data2);
+    }
 
 
 }
