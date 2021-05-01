@@ -13,14 +13,18 @@ public class RequestData {
     private final StringProperty model;
     private final StringProperty problem;
     private final StringProperty interval;
+    private final StringProperty status;
+    private final StringProperty progress;
 
-    public RequestData(Integer id, String username, String brand, String model, String problem, String interval){
+    public RequestData(Integer id, String username, String brand, String model, String problem, String interval, String status, String progress){
         this.ID = new SimpleIntegerProperty(id);
         this.username = new SimpleStringProperty(username);
         this.brand = new SimpleStringProperty(brand);
         this.model = new SimpleStringProperty(model);
         this.problem = new SimpleStringProperty(problem);
         this.interval = new SimpleStringProperty(interval);
+        this.status = new SimpleStringProperty(status);
+        this.progress = new SimpleStringProperty(progress);
     }
 
     public int getID() {
@@ -95,4 +99,27 @@ public class RequestData {
         this.interval.set(interval);
     }
 
+    public String getStatus() {
+        return status.get();
+    }
+
+    public StringProperty statusProperty() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status.set(status);
+    }
+
+    public String getProgress() {
+        return progress.get();
+    }
+
+    public StringProperty progressProperty() {
+        return progress;
+    }
+
+    public void setProgress(String progress) {
+        this.progress.set(progress);
+    }
 }

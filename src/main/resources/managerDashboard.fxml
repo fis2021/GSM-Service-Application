@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managers.ManagerDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managers.ManagerDashboardController">
    <children>
       <Separator prefWidth="200.0" />
       <SubScene height="200.0" layoutX="333.0" layoutY="321.0" width="200.0">
@@ -25,37 +25,39 @@
           <Region />
         </root>
       </SubScene>
-      <TabPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Pending requests">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
                      <children>
-                        <HBox layoutX="15.0" layoutY="11.0" prefHeight="500.0" prefWidth="580.0">
+                        <HBox layoutX="15.0" layoutY="11.0" prefHeight="500.0" prefWidth="961.0">
                            <children>
-                              <TableView fx:id="requesttable" prefHeight="500.0" prefWidth="580.0">
+                              <TableView fx:id="requesttable" prefHeight="500.0" prefWidth="1038.0">
                                 <columns>
-                                  <TableColumn fx:id="idcolumn" prefWidth="56.79998779296875" text="Id" />
-                                  <TableColumn fx:id="usernamecolumn" prefWidth="93.59994506835938" text="Username" />
-                                    <TableColumn fx:id="brandcolumn" prefWidth="116.800048828125" text="Brand" />
-                                    <TableColumn fx:id="modelcolumn" prefWidth="91.20001220703125" text="Model" />
-                                    <TableColumn fx:id="problemcolumn" prefWidth="100.0" text="Problem" />
-                                    <TableColumn fx:id="timecolumn" prefWidth="118.39990234375" text="Time slot" />
+                                  <TableColumn fx:id="idcolumn" prefWidth="70.0" text="Id" />
+                                  <TableColumn fx:id="usernamecolumn" prefWidth="125.0" text="Username" />
+                                    <TableColumn fx:id="brandcolumn" prefWidth="110.0" text="Brand" />
+                                    <TableColumn fx:id="modelcolumn" prefWidth="85.0" text="Model" />
+                                    <TableColumn fx:id="problemcolumn" prefWidth="230.0" text="Problem" />
+                                    <TableColumn fx:id="timecolumn" prefWidth="130.0" text="Time slot" />
+                                    <TableColumn fx:id="statuscolumn" prefWidth="110.39996337890625" text="Status" />
+                                    <TableColumn fx:id="progresscolumn" prefWidth="110.39996337890625" text="Progress" />
                                 </columns>
                               </TableView>
                            </children>
                         </HBox>
-                        <Button layoutX="603.0" layoutY="104.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
+                        <Button layoutX="1027.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="700.0" layoutY="104.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #009292;" text="Refuse" textFill="WHITE">
+                        <Button layoutX="1068.0" layoutY="110.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #009292;" text="Refuse" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="load" layoutX="617.0" layoutY="39.0" mnemonicParsing="false" onAction="#loadRequestData" text="Load Requests" />
+                        <Button fx:id="load" layoutX="1021.0" layoutY="53.0" mnemonicParsing="false" onAction="#loadRequestData" text="Load Requests" />
                      </children>
                   </AnchorPane>
             </content>
@@ -64,15 +66,18 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="15.0" layoutY="11.0" prefHeight="500.0" prefWidth="580.0">
+                        <HBox layoutX="15.0" layoutY="11.0" prefHeight="500.0" prefWidth="978.0">
                            <children>
-                              <TableView prefHeight="500.0" prefWidth="580.0">
+                              <TableView prefHeight="500.0" prefWidth="977.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Name" />
-                                    <TableColumn prefWidth="95.20001220703125" text="Username" />
-                                    <TableColumn prefWidth="88.0" text="Device" />
-                                    <TableColumn prefWidth="80.79998779296875" text="Model" />
-                                    <TableColumn prefWidth="97.60003662109375" text="Problem" />
+                                    <TableColumn prefWidth="70.0" text="Name" />
+                                    <TableColumn prefWidth="125.0" text="Username" />
+                                    <TableColumn prefWidth="110.0" text="Device" />
+                                    <TableColumn prefWidth="85.0" text="Model" />
+                                    <TableColumn prefWidth="230.0" text="Problem" />
+                                    <TableColumn prefWidth="130.0" text="Time slot" />
+                                    <TableColumn prefWidth="110.39996337890625" text="Status" />
+                                    <TableColumn prefWidth="110.39996337890625" text="Progress" />
                                  </columns>
                               </TableView>
                            </children>
@@ -85,15 +90,18 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="15.0" layoutY="11.0" prefHeight="500.0" prefWidth="580.0">
+                        <HBox layoutX="15.0" layoutY="11.0" prefHeight="500.0" prefWidth="979.0">
                            <children>
-                              <TableView prefHeight="500.0" prefWidth="580.0">
+                              <TableView prefHeight="500.0" prefWidth="1028.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Name" />
-                                    <TableColumn prefWidth="100.0" text="Username" />
-                                    <TableColumn prefWidth="80.79998779296875" text="Device" />
-                                    <TableColumn prefWidth="75.20001220703125" text="Model" />
-                                    <TableColumn prefWidth="95.20001220703125" text="Problem" />
+                                    <TableColumn prefWidth="70.0" text="Name" />
+                                    <TableColumn prefWidth="125.0" text="Username" />
+                                    <TableColumn prefWidth="110.0" text="Device" />
+                                    <TableColumn prefWidth="85.0" text="Model" />
+                                    <TableColumn prefWidth="230.0" text="Problem" />
+                                    <TableColumn prefWidth="130.0" text="Time slot" />
+                                    <TableColumn prefWidth="112.80002441406248" text="Status" />
+                                    <TableColumn prefWidth="112.80002441406248" text="Progress" />
                                  </columns>
                               </TableView>
                            </children>

@@ -42,6 +42,12 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TableColumn<RequestData, String> timecolumn;
 
+    @FXML
+    private TableColumn<RequestData, String> statuscolumn;
+
+    @FXML
+    private TableColumn<RequestData, String> progresscolumn;
+
     private dbConnect dc;
     private ObservableList<RequestData> data;
 
@@ -59,7 +65,8 @@ public class ManagerDashboardController implements Initializable {
 
             ResultSet rs = conn.createStatement().executeQuery(sql);
             while(rs.next()){
-                this.data.add(new RequestData(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                this.data.add(new RequestData(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7
+                ),rs.getString(8)));
 
             }
 
@@ -73,6 +80,9 @@ public class ManagerDashboardController implements Initializable {
         this.modelcolumn.setCellValueFactory(new PropertyValueFactory<RequestData,String>("model"));
         this.problemcolumn.setCellValueFactory(new PropertyValueFactory<RequestData,String>("problem"));
         this.timecolumn.setCellValueFactory(new PropertyValueFactory<RequestData,String>("interval"));
+        this.statuscolumn.setCellValueFactory(new PropertyValueFactory<RequestData,String>("status"));
+        this.progresscolumn.setCellValueFactory(new PropertyValueFactory<RequestData,String>("progress"));
+
 
         this.requesttable.setItems(null);
         this.requesttable.setItems(this.data);
