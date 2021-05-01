@@ -238,4 +238,23 @@ public class ManagerDashboardController implements Initializable {
         }
     }
 
+    @FXML
+    private void refuseRequest(ActionEvent event) throws SQLException {
+        Connection conn = dbConnect.connect(Config.SQCONN);
+        PreparedStatement ps = null;
+        try{
+            String sqlUpdate2 = "UPDATE requests SET status = ? WHERE id =  ?";
+            ps = conn.prepareStatement(sqlUpdate2);
+            ps.setString(1,"Refused");
+            ps.setString(2,this.requestid.getText());
+            ps.execute();
+            loadPendingData(event);
+            loadRefusedData(event);
+            System.out.println("Merge");
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+    }
+
 }
