@@ -1,5 +1,6 @@
 package gsmapp;
 
+import Config.Config;
 import Encryption.MD5;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -58,6 +59,7 @@ public class LoginController implements Initializable {
         String hashed_password = MD5.getMd5(this.password.getText());
         try{
             if(this.loginModel.isLogin(this.username.getText(), hashed_password, ((option)this.combobox.getValue()).toString())){
+                Config.loggedUsername = this.username.getText();
                 switch (((option)this.combobox.getValue()).toString()) {
                     case "Manager":
                         managerLogin();
@@ -77,6 +79,7 @@ public class LoginController implements Initializable {
     }
 
     public void clientLogin(){
+        System.out.println(Config.loggedUsername);
         try{
             Stage stage = (Stage)loginMessageLabel.getScene().getWindow();
             Parent viewClientPage = FXMLLoader.load(getClass().getClassLoader().getResource("clientDashboard.fxml"));
