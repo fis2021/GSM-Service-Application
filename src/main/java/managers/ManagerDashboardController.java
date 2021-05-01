@@ -51,7 +51,7 @@ public class ManagerDashboardController implements Initializable {
     private dbConnect dc;
     private ObservableList<RequestData> data;
 
-    private String sql = "SELECT * FROM requests";
+    private String sql = "SELECT * FROM requests WHERE status LIKE 'Pending'  ";
 
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
