@@ -49,7 +49,7 @@
                               </TableView>
                            </children>
                         </HBox>
-                        <Button layoutX="222.0" layoutY="83.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
+                        <Button layoutX="222.0" layoutY="83.0" mnemonicParsing="false" onAction="#acceptRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -59,11 +59,11 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="load" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadRequestData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Pending Requests" textFill="WHITE">
+                        <Button fx:id="load" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadPendingData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Pending Requests" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
-                        <TextField layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
+                        <TextField fx:id="requestid" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
                         <Label layoutX="32.0" layoutY="90.0" text="Request ID" />
                      </children>
                   </AnchorPane>

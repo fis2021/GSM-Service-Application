@@ -9,13 +9,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import dbUtil.dbConnect;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.xml.transform.Result;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -108,6 +107,10 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TableColumn<RequestData, String> progresscolumn3;
 
+    //buttons
+
+    @FXML
+    private TextField requestid;
 
     private dbConnect dc;
     private ObservableList<RequestData> data;
@@ -118,13 +121,12 @@ public class ManagerDashboardController implements Initializable {
     private String sql2 = "SELECT * FROM requests WHERE status LIKE 'Accepted'";
     private String sql3 = "SELECT * FROM requests WHERE status LIKE 'Refused'";
 
-
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
     }
 
     @FXML
-    private void loadRequestData(ActionEvent event) throws SQLException {
+    private void loadPendingData(ActionEvent event) throws SQLException {
         try{
             Connection conn = dbConnect.connect(Config.SQCONN);
             this.data = FXCollections.observableArrayList();
@@ -217,5 +219,23 @@ public class ManagerDashboardController implements Initializable {
         this.refusedtable.setItems(this.data3);
     }
 
+    @FXML
+    private void acceptRequest(ActionEvent event) throws SQLException {
+        Connection conn = dbConnect.connect(Config.SQCONN);
+        PreparedStatement ps = null;
+        try{
+            String sqlUpdate = "UPDATE requests SET status = ? WHERE id =  ?";
+            ps = conn.prepareStatement(sqlUpdate);
+            ps.setString(1,"Accepted");
+            ps.setString(2,this.requestid.getText());
+            ps.execute();
+            loadPendingData(event);
+            loadAcceptedData(event);
+            System.out.println("Merge");
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+    }
 
 }
