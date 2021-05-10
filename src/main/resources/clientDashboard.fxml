@@ -1,11 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clients.ClientDashboardController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clients.ClientDashboardController">
    <children>
-      <Label layoutX="300.0" layoutY="159.0" text="merge" />
+      <TabPane layoutY="-1.0" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="My Requests">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;" />
+               </content>
+            </Tab>
+            <Tab text="Send a request">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
+                     <children>
+                        <Label layoutX="110.0" layoutY="180.0" text="Brand">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="106.0" layoutY="267.0" text="Model">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="344.0" text="Problem">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="92.0" layoutY="507.0" prefHeight="27.0" prefWidth="82.0" text="Time slot">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="126.0" layoutY="32.0" prefHeight="27.0" prefWidth="937.0" style="-fx-text-fill: #009292;" text="Here you can send a repair request to the service. Just make sure you provide all the necessary information!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="brandInput" layoutX="232.0" layoutY="181.0" prefHeight="26.0" prefWidth="250.0" />
+                        <TextField fx:id="modelInput" layoutX="232.0" layoutY="268.0" prefHeight="26.0" prefWidth="250.0" />
+                        <TextField fx:id="timeslotInput" layoutX="232.0" layoutY="508.0" prefHeight="26.0" prefWidth="250.0" />
+                        <Button fx:id="sendRequestButton" layoutX="292.0" layoutY="604.0" mnemonicParsing="false" onAction="#sendRequest" style="-fx-background-color: #009292;" text="Send my request" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="636.0" fitWidth="513.0" layoutX="626.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/logo.png" />
+                           </image>
+                        </ImageView>
+                        <TextArea fx:id="problemInput" layoutX="234.0" layoutY="344.0" prefHeight="112.0" prefWidth="250.0" />
+                        <Label layoutX="234.0" layoutY="539.0" prefHeight="18.0" prefWidth="185.0" text="Eg.: M-W 14:00-17:00" />
+                        <Label fx:id="thankYouLabel" layoutX="243.0" layoutY="676.0" prefHeight="27.0" prefWidth="226.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestWarningLabel" layoutX="264.0" layoutY="144.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Feedback">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
