@@ -1,125 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: f3f0b3;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gsmapp.SignupController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clients.ClientDashboardController">
    <children>
-      <Label layoutX="85.0" layoutY="166.0" text="First Name">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="86.0" layoutY="214.0" text="Last Name">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="84.0" layoutY="261.0" text="Username">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="86.0" layoutY="311.0" text="Password">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="52.0" layoutY="359.0" text="Confirm password">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="fnameInput" layoutX="202.0" layoutY="165.0" promptText="First Name">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <TextField fx:id="lnameInput" layoutX="201.0" layoutY="213.0" promptText="Last Name">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <TextField fx:id="usernameInput" layoutX="201.0" layoutY="260.0" promptText="Username">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <PasswordField fx:id="passwordInput" layoutX="202.0" layoutY="310.0" promptText="******">
-         <font>
-            <Font size="14.0" />
-         </font></PasswordField>
-      <PasswordField fx:id="confirmPassInput" layoutX="202.0" layoutY="358.0" promptText="******">
-         <font>
-            <Font size="14.0" />
-         </font></PasswordField>
-      <Label alignment="CENTER" prefHeight="115.0" prefWidth="800.0" style="-fx-background-color: #009292;" text="  USER REGISTRATION" textFill="#283d3b">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="36.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="115.0" fitWidth="112.0" layoutX="20.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/signup.png" />
-         </image>
-      </ImageView>
-      <ComboBox fx:id="comboboxInput" layoutX="201.0" layoutY="404.0" opacity="0.8" prefHeight="26.0" prefWidth="174.0" promptText="Client / Manager" />
-      <Label layoutX="105.0" layoutY="403.0" text="Role">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="76.0" layoutY="452.0" text="Access code">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="codeInput" layoutX="202.0" layoutY="451.0" promptText="4 digit access code">
-         <font>
-            <Font size="14.0" />
-         </font></PasswordField>
-      <Label fx:id="passNotMatchLabel" layoutX="400.0" layoutY="363.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="accessWarning" layoutX="400.0" layoutY="456.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="createAcc" layoutX="226.0" layoutY="497.0" mnemonicParsing="false" onAction="#onSignup" style="-fx-background-color: #009292;" text="Create account" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Button>
-      <Label fx:id="roleWarning" layoutX="400.0" layoutY="408.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="passwordWarning" layoutX="400.0" layoutY="316.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="usernameWarning" layoutX="400.0" layoutY="267.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="firstNameWarning" layoutX="400.0" layoutY="171.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lastNameWarning" layoutX="400.0" layoutY="219.0" textFill="#f71500">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <TabPane layoutY="-1.0" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="My Requests">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;" />
+               </content>
+            </Tab>
+            <Tab text="Send a request">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
+                     <children>
+                        <Label layoutX="110.0" layoutY="180.0" text="Brand">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="106.0" layoutY="267.0" text="Model">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="344.0" text="Problem">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="92.0" layoutY="507.0" prefHeight="27.0" prefWidth="82.0" text="Time slot">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="126.0" layoutY="32.0" prefHeight="27.0" prefWidth="937.0" style="-fx-text-fill: #009292;" text="Here you can send a repair request to the service. Just make sure you provide all the necessary information!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="brandInput" layoutX="232.0" layoutY="181.0" prefHeight="26.0" prefWidth="250.0" />
+                        <TextField fx:id="modelInput" layoutX="232.0" layoutY="268.0" prefHeight="26.0" prefWidth="250.0" />
+                        <TextField fx:id="timeslotInput" layoutX="232.0" layoutY="508.0" prefHeight="26.0" prefWidth="250.0" />
+                        <Button fx:id="sendRequestButton" layoutX="292.0" layoutY="604.0" mnemonicParsing="false" onAction="#sendRequest" style="-fx-background-color: #009292;" text="Send my request" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="636.0" fitWidth="513.0" layoutX="626.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/logo.png" />
+                           </image>
+                        </ImageView>
+                        <TextArea fx:id="problemInput" layoutX="234.0" layoutY="344.0" prefHeight="112.0" prefWidth="250.0" />
+                        <Label layoutX="234.0" layoutY="539.0" prefHeight="18.0" prefWidth="185.0" text="Eg.: M-W 14:00-17:00" />
+                        <Label fx:id="thankYouLabel" layoutX="243.0" layoutY="676.0" prefHeight="27.0" prefWidth="226.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestWarningLabel" layoutX="264.0" layoutY="144.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Feedback">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
