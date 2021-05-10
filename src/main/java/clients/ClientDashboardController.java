@@ -44,10 +44,89 @@ public class ClientDashboardController implements Initializable {
     @FXML
     private Label thankYouLabel;
 
+    ///requests table
+    @FXML
+    private TableView<RequestData> requeststable;
+
+    @FXML
+    private TableColumn<RequestData, Integer> idcolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> usernamecolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> brandcolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> modelcolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> problemcolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> timecolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> statuscolumn4;
+
+    @FXML
+    private TableColumn<RequestData, String> progresscolumn4;
+
+    @FXML
+    private RadioButton rbone;
+
+    @FXML
+    private RadioButton rbtwo;
+
+    @FXML
+    private RadioButton rbthree;
+
+    @FXML
+    private RadioButton rbfour;
+
+    @FXML
+    private RadioButton rbfive;
+
+    private dbConnect dc;
+    private ObservableList<RequestData> data4;
+    private String sql4 = "SELECT * FROM requests WHERE username=\'"+Config.loggedUsername+"\'";
+
     public void initialize(URL url, ResourceBundle rb){
+        this.dc = new dbConnect();
     }
 
-    public void sendRequest(ActionEvent event) {
+    @FXML
+    private void loadRequestsData(ActionEvent event) throws SQLException {
+        try{
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            this.data4 = FXCollections.observableArrayList();
+
+            ResultSet rs = conn.createStatement().executeQuery(sql4);
+            while(rs.next()){
+                this.data4.add(new RequestData(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7
+                ),rs.getString(8)));
+
+            }
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+
+        this.idcolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,Integer>("ID"));
+        this.usernamecolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("username"));
+        this.brandcolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("brand"));
+        this.modelcolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("model"));
+        this.problemcolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("problem"));
+        this.timecolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("interval"));
+        this.statuscolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("status"));
+        this.progresscolumn4.setCellValueFactory(new PropertyValueFactory<RequestData,String>("progress"));
+
+
+        this.requeststable.setItems(null);
+        this.requeststable.setItems(this.data4);
+    }
+
+    public void sendRequest(ActionEvent event) throws SQLException {
 
 
         String brand = brandInput.getText();
@@ -69,7 +148,7 @@ public class ClientDashboardController implements Initializable {
         }
 
         SendRequestModel.sendRequest(username,brand,model,problem,interval,status,progress);
-
+        loadRequestsData(event);
 
     }
 
