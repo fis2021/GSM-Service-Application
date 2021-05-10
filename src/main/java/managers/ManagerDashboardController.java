@@ -78,12 +78,6 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TableColumn<RequestData, String> progresscolumn2;
 
-    @FXML
-    private TextField acceptedid;
-
-    @FXML
-    private TextField apptime;
-
     //refused table
 
     @FXML
@@ -258,21 +252,4 @@ public class ManagerDashboardController implements Initializable {
             System.err.println("Error"+ e);
         }
     }
-
-    @FXML
-    private void updateTimeSlot(ActionEvent event) throws SQLException {
-        Connection conn = dbConnect.connect(Config.SQCONN);
-        PreparedStatement ps = null;
-        try{
-            String sqlUpdate3 = "UPDATE requests SET interval = ? WHERE id =  ?";
-            ps = conn.prepareStatement(sqlUpdate3);
-            ps.setString(1,this.apptime.getText());
-            ps.setString(2,this.acceptedid.getText());
-            ps.execute();
-            loadAcceptedData(event);
-        }catch (SQLException e){
-            System.err.println("Error"+ e);
-        }
-    }
-
 }
