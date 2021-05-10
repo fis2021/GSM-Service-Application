@@ -231,8 +231,6 @@ public class ManagerDashboardController implements Initializable {
             ps.execute();
             loadPendingData(event);
             loadAcceptedData(event);
-            System.out.println("Merge");
-
         }catch (SQLException e){
             System.err.println("Error"+ e);
         }
@@ -250,11 +248,8 @@ public class ManagerDashboardController implements Initializable {
             ps.execute();
             loadPendingData(event);
             loadRefusedData(event);
-            System.out.println("Merge");
-
         }catch (SQLException e){
             System.err.println("Error"+ e);
         }
     }
-
 }

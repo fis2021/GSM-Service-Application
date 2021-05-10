@@ -2,10 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +21,27 @@
          <tabs>
             <Tab text="My Requests">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
+                     <children>
+                        <Button fx:id="loadRequestsData" layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#loadRequestsData" style="-fx-background-color: #009292;" text="Load My Requests" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="requeststable" layoutX="19.0" layoutY="114.0" prefHeight="644.0" prefWidth="1162.0">
+                           <columns>
+                              <TableColumn fx:id="idcolumn4" prefWidth="61.600003242492676" text="ID" />
+                              <TableColumn fx:id="usernamecolumn4" prefWidth="122.4000244140625" text="Username" />
+                              <TableColumn fx:id="brandcolumn4" prefWidth="99.99995422363281" text="Brand" />
+                              <TableColumn fx:id="modelcolumn4" prefWidth="93.60003662109375" text="Model" />
+                              <TableColumn fx:id="problemcolumn4" prefWidth="339.20001220703125" text="Problem" />
+                              <TableColumn fx:id="timecolumn4" prefWidth="154.39996337890625" text="Time slot" />
+                              <TableColumn fx:id="statuscolumn4" prefWidth="96.800048828125" text="Status" />
+                              <TableColumn fx:id="progresscolumn4" prefWidth="188.00006103515625" text="Progress" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="Send a request">
@@ -80,7 +104,29 @@
             </Tab>
             <Tab text="Feedback">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
+                     <children>
+                        <TextArea layoutX="73.0" layoutY="106.0" prefHeight="200.0" prefWidth="460.0" />
+                        <Label layoutX="73.0" layoutY="363.0" prefHeight="20.0" prefWidth="138.0" text="Rate our services">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="73.0" layoutY="60.0" prefHeight="18.0" prefWidth="242.0" text="Please leave your opinion here">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbone" layoutX="211.0" layoutY="364.0" mnemonicParsing="false" text="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tgRate" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbtwo" layoutX="315.0" layoutY="364.0" mnemonicParsing="false" text="2" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbthree" layoutX="429.0" layoutY="364.0" mnemonicParsing="false" text="3" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbfour" layoutX="544.0" layoutY="364.0" mnemonicParsing="false" text="4" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbfive" layoutX="662.0" layoutY="364.0" mnemonicParsing="false" text="5" toggleGroup="$tgRate" />
+                     </children></AnchorPane>
                </content>
             </Tab>
          </tabs>
