@@ -5,14 +5,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import dbUtil.dbConnect;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import javax.xml.transform.Result;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Observable;
@@ -119,6 +122,8 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TextField progressInput;
 
+    @FXML
+    private TabPane managerTabPane;
 
     //buttons
 
@@ -302,4 +307,17 @@ public class ManagerDashboardController implements Initializable {
         }
     }
 
+    @FXML
+    private void logout2(ActionEvent event) {
+        try{
+            Stage stage = (Stage)managerTabPane.getScene().getWindow();
+            Parent viewLoginPage = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(viewLoginPage);
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
 }
