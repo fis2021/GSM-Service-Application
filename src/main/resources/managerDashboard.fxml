@@ -27,7 +27,7 @@
                 <Region />
             </root>
         </SubScene>
-        <TabPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
+        <TabPane fx:id="managerTabPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Pending requests">
                     <content>
@@ -65,6 +65,7 @@
                                     </font></Button>
                                 <TextField fx:id="requestid" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
                                 <Label layoutX="32.0" layoutY="90.0" text="Request ID" />
+                                <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -93,23 +94,24 @@
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font></Button>
-                                <Label layoutX="807.0" layoutY="89.0" text="Request ID" />
-                                <Label layoutX="379.0" layoutY="90.0" text="Appointment Time" />
-                                <Button layoutX="1016.0" layoutY="84.0" mnemonicParsing="false" onAction="#updateTimeSlot" style="-fx-background-color: #009292;" text="Update Time Slot" textFill="WHITE">
+                                <Label layoutX="714.0" layoutY="90.0" text="Request ID" />
+                                <Label layoutX="290.0" layoutY="90.0" text="Appointment Time" />
+                                <Button layoutX="934.0" layoutY="83.0" mnemonicParsing="false" onAction="#updateTimeSlot" style="-fx-background-color: #009292;" text="Update Time Slot" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font></Button>
-                                <TextField fx:id="acceptedid" layoutX="883.0" layoutY="85.0" prefHeight="26.0" prefWidth="67.0" />
-                                <TextField fx:id="apptime" layoutX="527.0" layoutY="85.0" prefHeight="26.0" prefWidth="220.0" />
-                                <Label layoutX="385.0" layoutY="50.0" text="Current Progress" />
-                                <TextField fx:id="progressInput" layoutX="527.0" layoutY="45.0" prefHeight="26.0" prefWidth="220.0" />
-                                <Label layoutX="807.0" layoutY="49.0" text="Request ID" />
-                                <TextField fx:id="acceptedid1" layoutX="883.0" layoutY="45.0" prefHeight="26.0" prefWidth="67.0" />
-                                <Button layoutX="1016.0" layoutY="44.0" mnemonicParsing="false" onAction="#updateProgress" prefHeight="29.6" prefWidth="133.6" style="-fx-background-color: #009292;" text="Update Progress" textFill="WHITE">
+                                <TextField fx:id="acceptedid" layoutX="815.0" layoutY="85.0" prefHeight="26.0" prefWidth="67.0" />
+                                <TextField fx:id="apptime" layoutX="445.0" layoutY="85.0" prefHeight="26.0" prefWidth="220.0" />
+                                <Label layoutX="290.0" layoutY="49.0" text="Current Progress" />
+                                <TextField fx:id="progressInput" layoutX="445.0" layoutY="46.0" prefHeight="26.0" prefWidth="220.0" />
+                                <Label layoutX="714.0" layoutY="50.0" text="Request ID" />
+                                <TextField fx:id="acceptedid1" layoutX="815.0" layoutY="46.0" prefHeight="26.0" prefWidth="67.0" />
+                                <Button layoutX="934.0" layoutY="44.0" mnemonicParsing="false" onAction="#updateProgress" prefHeight="29.6" prefWidth="133.6" style="-fx-background-color: #009292;" text="Update Progress" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Button>
+                                <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -138,6 +140,7 @@
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font></Button>
+                                <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
                             </children>
                         </AnchorPane>
                     </content>
