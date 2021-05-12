@@ -87,6 +87,9 @@ public class ClientDashboardController implements Initializable {
     @FXML
     private RadioButton rbfive;
 
+    @FXML
+    private TabPane clientTabPane;
+
     private dbConnect dc;
     private ObservableList<RequestData> data4;
     private String sql4 = "SELECT * FROM requests WHERE username=\'"+Config.loggedUsername+"\'";
@@ -151,5 +154,20 @@ public class ClientDashboardController implements Initializable {
         loadRequestsData(event);
 
     }
+
+    @FXML
+    private void logout(ActionEvent event) {
+        try{
+            Stage stage = (Stage)clientTabPane.getScene().getWindow();
+            Parent viewLoginPage = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(viewLoginPage);
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
 
 }
