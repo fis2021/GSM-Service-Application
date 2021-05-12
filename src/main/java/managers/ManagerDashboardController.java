@@ -113,6 +113,12 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TextField apptime;
 
+    @FXML
+    private TextField acceptedid1;
+
+    @FXML
+    private TextField progressInput;
+
 
     //buttons
 
@@ -275,4 +281,21 @@ public class ManagerDashboardController implements Initializable {
             System.err.println("Error"+ e);
         }
     }
+
+    @FXML
+    private void updateProgress(ActionEvent event) throws SQLException {
+        Connection conn = dbConnect.connect(Config.SQCONN);
+        PreparedStatement ps = null;
+        try{
+            String sqlUpdate4 = "UPDATE requests SET progress = ? WHERE id =  ?";
+            ps = conn.prepareStatement(sqlUpdate4);
+            ps.setString(1,this.progressInput.getText());
+            ps.setString(2,this.acceptedid1.getText());
+            ps.execute();
+            loadAcceptedData(event);
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+    }
+
 }
