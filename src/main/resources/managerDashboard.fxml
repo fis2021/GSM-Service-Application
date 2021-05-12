@@ -15,125 +15,134 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managers.ManagerDashboardController">
-   <children>
-      <Separator prefWidth="200.0" />
-      <SubScene height="200.0" layoutX="333.0" layoutY="321.0" width="200.0">
-        <root>
-          <Region />
-        </root>
-      </SubScene>
-      <SubScene height="200.0" layoutX="332.0" layoutY="321.0" width="200.0">
-        <root>
-          <Region />
-        </root>
-      </SubScene>
-      <TabPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Pending requests">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
-                     <children>
-                        <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="1167.0">
-                           <children>
-                              <TableView fx:id="pendingtable" prefHeight="623.0" prefWidth="1202.0">
-                                <columns>
-                                  <TableColumn fx:id="idcolumn" prefWidth="61.600003242492676" text="ID" />
-                                  <TableColumn fx:id="usernamecolumn" prefWidth="122.4000244140625" text="Username" />
-                                    <TableColumn fx:id="brandcolumn" prefWidth="99.99995422363281" text="Brand" />
-                                    <TableColumn fx:id="modelcolumn" prefWidth="93.60003662109375" text="Model" />
-                                    <TableColumn fx:id="problemcolumn" prefWidth="339.20001220703125" text="Problem" />
-                                    <TableColumn fx:id="timecolumn" prefWidth="154.39996337890625" text="Time slot" />
-                                    <TableColumn fx:id="statuscolumn" prefWidth="96.800048828125" text="Status" />
-                                    <TableColumn fx:id="progresscolumn" prefWidth="205.59991455078125" text="Progress" />
-                                </columns>
-                              </TableView>
-                           </children>
-                        </HBox>
-                        <Button layoutX="222.0" layoutY="83.0" mnemonicParsing="false" onAction="#acceptRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="328.0" layoutY="84.0" mnemonicParsing="false" onAction="#refuseRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Refuse" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="load" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadPendingData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Pending Requests" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font></Button>
-                        <TextField fx:id="requestid" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
-                        <Label layoutX="32.0" layoutY="90.0" text="Request ID" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Accepted requests">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="1167.0">
-                           <children>
-                              <TableView fx:id="acceptedtable" prefHeight="623.0" prefWidth="1202.0">
-                                 <columns>
-                                     <TableColumn fx:id="idcolumn2" prefWidth="61.600003242492676" text="ID" />
-                                     <TableColumn fx:id="usernamecolumn2" prefWidth="122.4000244140625" text="Username" />
-                                     <TableColumn fx:id="brandcolumn2" prefWidth="99.99995422363281" text="Brand" />
-                                     <TableColumn fx:id="modelcolumn2" prefWidth="93.60003662109375" text="Model" />
-                                     <TableColumn fx:id="problemcolumn2" prefWidth="339.20001220703125" text="Problem" />
-                                     <TableColumn fx:id="timecolumn2" prefWidth="154.39996337890625" text="Time slot" />
-                                     <TableColumn fx:id="statuscolumn2" prefWidth="96.800048828125" text="Status" />
-                                     <TableColumn fx:id="progresscolumn2" prefWidth="205.59991455078125" text="Progress" />
-                                 </columns>
-                              </TableView>
-                           </children>
-                        </HBox>
-                         <Button fx:id="loadaccepted" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadAcceptedData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Accepted Requests" textFill="WHITE">
-                             <font>
-                                 <Font name="System Bold" size="14.0" />
-                             </font></Button>
-                        <Label layoutX="32.0" layoutY="90.0" text="Request ID" />
-                        <Label layoutX="301.0" layoutY="90.0" text="Appointment Time" />
-                        <Button layoutX="746.0" layoutY="84.0" mnemonicParsing="false" onAction="#updateTimeSlot" style="-fx-background-color: #009292;" text="Update Time Slot" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font></Button>
-                        <TextField fx:id="acceptedid" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
-                        <TextField fx:id="apptime" layoutX="438.0" layoutY="86.0" prefHeight="26.0" prefWidth="220.0" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Refused requests">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="1167.0">
-                           <children>
-                              <TableView fx:id="refusedtable" prefHeight="623.0" prefWidth="1202.0">
-                                 <columns>
-                                     <TableColumn fx:id="idcolumn3" prefWidth="61.600003242492676" text="ID" />
-                                     <TableColumn fx:id="usernamecolumn3" prefWidth="122.4000244140625" text="Username" />
-                                     <TableColumn fx:id="brandcolumn3" prefWidth="99.99995422363281" text="Brand" />
-                                     <TableColumn fx:id="modelcolumn3" prefWidth="93.60003662109375" text="Model" />
-                                     <TableColumn fx:id="problemcolumn3" prefWidth="339.20001220703125" text="Problem" />
-                                     <TableColumn fx:id="timecolumn3" prefWidth="154.39996337890625" text="Time slot" />
-                                     <TableColumn fx:id="statuscolumn3" prefWidth="96.800048828125" text="Status" />
-                                     <TableColumn fx:id="progresscolumn3" prefWidth="205.59991455078125" text="Progress" />
-                                 </columns>
-                              </TableView>
-                           </children>
-                        </HBox>
-                         <Button fx:id="loadrefused" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadRefusedData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Refused Requests" textFill="WHITE">
-                             <font>
-                                 <Font name="System Bold" size="14.0" />
-                             </font></Button>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+    <children>
+        <Separator prefWidth="200.0" />
+        <SubScene height="200.0" layoutX="333.0" layoutY="321.0" width="200.0">
+            <root>
+                <Region />
+            </root>
+        </SubScene>
+        <SubScene height="200.0" layoutX="332.0" layoutY="321.0" width="200.0">
+            <root>
+                <Region />
+            </root>
+        </SubScene>
+        <TabPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Pending requests">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
+                            <children>
+                                <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="1167.0">
+                                    <children>
+                                        <TableView fx:id="pendingtable" prefHeight="623.0" prefWidth="1202.0">
+                                            <columns>
+                                                <TableColumn fx:id="idcolumn" prefWidth="61.600003242492676" text="ID" />
+                                                <TableColumn fx:id="usernamecolumn" prefWidth="122.4000244140625" text="Username" />
+                                                <TableColumn fx:id="brandcolumn" prefWidth="99.99995422363281" text="Brand" />
+                                                <TableColumn fx:id="modelcolumn" prefWidth="93.60003662109375" text="Model" />
+                                                <TableColumn fx:id="problemcolumn" prefWidth="339.20001220703125" text="Problem" />
+                                                <TableColumn fx:id="timecolumn" prefWidth="154.39996337890625" text="Time slot" />
+                                                <TableColumn fx:id="statuscolumn" prefWidth="96.800048828125" text="Status" />
+                                                <TableColumn fx:id="progresscolumn" prefWidth="205.59991455078125" text="Progress" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </HBox>
+                                <Button layoutX="222.0" layoutY="83.0" mnemonicParsing="false" onAction="#acceptRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button layoutX="328.0" layoutY="84.0" mnemonicParsing="false" onAction="#refuseRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Refuse" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="load" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadPendingData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Pending Requests" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font></Button>
+                                <TextField fx:id="requestid" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
+                                <Label layoutX="32.0" layoutY="90.0" text="Request ID" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Accepted requests">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="1167.0">
+                                    <children>
+                                        <TableView fx:id="acceptedtable" prefHeight="623.0" prefWidth="1202.0">
+                                            <columns>
+                                                <TableColumn fx:id="idcolumn2" prefWidth="61.600003242492676" text="ID" />
+                                                <TableColumn fx:id="usernamecolumn2" prefWidth="122.4000244140625" text="Username" />
+                                                <TableColumn fx:id="brandcolumn2" prefWidth="99.99995422363281" text="Brand" />
+                                                <TableColumn fx:id="modelcolumn2" prefWidth="93.60003662109375" text="Model" />
+                                                <TableColumn fx:id="problemcolumn2" prefWidth="339.20001220703125" text="Problem" />
+                                                <TableColumn fx:id="timecolumn2" prefWidth="154.39996337890625" text="Time slot" />
+                                                <TableColumn fx:id="statuscolumn2" prefWidth="96.800048828125" text="Status" />
+                                                <TableColumn fx:id="progresscolumn2" prefWidth="205.59991455078125" text="Progress" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </HBox>
+                                <Button fx:id="loadaccepted" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadAcceptedData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Accepted Requests" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font></Button>
+                                <Label layoutX="807.0" layoutY="89.0" text="Request ID" />
+                                <Label layoutX="379.0" layoutY="90.0" text="Appointment Time" />
+                                <Button layoutX="1016.0" layoutY="84.0" mnemonicParsing="false" onAction="#updateTimeSlot" style="-fx-background-color: #009292;" text="Update Time Slot" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font></Button>
+                                <TextField fx:id="acceptedid" layoutX="883.0" layoutY="85.0" prefHeight="26.0" prefWidth="67.0" />
+                                <TextField fx:id="apptime" layoutX="527.0" layoutY="85.0" prefHeight="26.0" prefWidth="220.0" />
+                                <Label layoutX="385.0" layoutY="50.0" text="Current Progress" />
+                                <TextField fx:id="progressInput" layoutX="527.0" layoutY="45.0" prefHeight="26.0" prefWidth="220.0" />
+                                <Label layoutX="807.0" layoutY="49.0" text="Request ID" />
+                                <TextField fx:id="acceptedid1" layoutX="883.0" layoutY="45.0" prefHeight="26.0" prefWidth="67.0" />
+                                <Button layoutX="1016.0" layoutY="44.0" mnemonicParsing="false" onAction="#updateProgress" prefHeight="29.6" prefWidth="133.6" style="-fx-background-color: #009292;" text="Update Progress" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Refused requests">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="1167.0">
+                                    <children>
+                                        <TableView fx:id="refusedtable" prefHeight="623.0" prefWidth="1202.0">
+                                            <columns>
+                                                <TableColumn fx:id="idcolumn3" prefWidth="61.600003242492676" text="ID" />
+                                                <TableColumn fx:id="usernamecolumn3" prefWidth="122.4000244140625" text="Username" />
+                                                <TableColumn fx:id="brandcolumn3" prefWidth="99.99995422363281" text="Brand" />
+                                                <TableColumn fx:id="modelcolumn3" prefWidth="93.60003662109375" text="Model" />
+                                                <TableColumn fx:id="problemcolumn3" prefWidth="339.20001220703125" text="Problem" />
+                                                <TableColumn fx:id="timecolumn3" prefWidth="154.39996337890625" text="Time slot" />
+                                                <TableColumn fx:id="statuscolumn3" prefWidth="96.800048828125" text="Status" />
+                                                <TableColumn fx:id="progresscolumn3" prefWidth="205.59991455078125" text="Progress" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </HBox>
+                                <Button fx:id="loadrefused" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadRefusedData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Refused Requests" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font></Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
 </AnchorPane>
