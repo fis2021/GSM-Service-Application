@@ -17,9 +17,9 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clients.ClientDashboardController">
    <children>
-      <TabPane layoutY="-1.0" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="clientTabPane" layoutY="-1.0" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
-            <Tab text="My Requests">
+            <Tab fx:id="myRequestsTab" text="My Requests">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
                      <children>
@@ -40,6 +40,7 @@
                               <TableColumn fx:id="progresscolumn4" prefWidth="188.00006103515625" text="Progress" />
                            </columns>
                         </TableView>
+                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout" style="-fx-border-color: ff0000;" text="Log out" />
                      </children>
                   </AnchorPane>
                </content>
@@ -98,6 +99,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout" style="-fx-border-color: ff0000;" text="Log out" />
                      </children>
                   </AnchorPane>
                </content>
@@ -126,6 +128,7 @@
                         <RadioButton fx:id="rbthree" layoutX="429.0" layoutY="364.0" mnemonicParsing="false" text="3" toggleGroup="$tgRate" />
                         <RadioButton fx:id="rbfour" layoutX="544.0" layoutY="364.0" mnemonicParsing="false" text="4" toggleGroup="$tgRate" />
                         <RadioButton fx:id="rbfive" layoutX="662.0" layoutY="364.0" mnemonicParsing="false" text="5" toggleGroup="$tgRate" />
+                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout" style="-fx-border-color: ff0000;" text="Log out" />
                      </children></AnchorPane>
                </content>
             </Tab>
