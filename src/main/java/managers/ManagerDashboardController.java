@@ -277,6 +277,8 @@ public class ManagerDashboardController implements Initializable {
             ps.setString(2,this.acceptedid.getText());
             ps.execute();
             loadAcceptedData(event);
+            this.apptime.setText("");
+            this.acceptedid.setText("");
         }catch (SQLException e){
             System.err.println("Error"+ e);
         }
@@ -293,6 +295,8 @@ public class ManagerDashboardController implements Initializable {
             ps.setString(2,this.acceptedid1.getText());
             ps.execute();
             loadAcceptedData(event);
+            this.progressInput.setText("");
+            this.acceptedid1.setText("");
         }catch (SQLException e){
             System.err.println("Error"+ e);
         }
