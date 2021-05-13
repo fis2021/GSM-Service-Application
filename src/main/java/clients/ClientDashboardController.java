@@ -88,6 +88,18 @@ public class ClientDashboardController implements Initializable {
     private RadioButton rbfive;
 
     @FXML
+    private Label ratingNumber;
+
+    @FXML
+    private Label thankyouFeedback;
+
+    @FXML
+    private Label feedbackWarning;
+
+    @FXML
+    private TextArea feedbackText;
+
+    @FXML
     private TabPane clientTabPane;
 
     private dbConnect dc;
@@ -169,5 +181,35 @@ public class ClientDashboardController implements Initializable {
         }
     }
 
+    public void sendFeedback2(ActionEvent event) throws SQLException {
+
+        String feedback = feedbackText.getText();
+        String username = Config.loggedUsername;
+        Integer givenRating = 0;
+        if(rbone.isSelected()==true)
+            givenRating = 1;
+        if(rbtwo.isSelected()==true)
+            givenRating = 2;
+        if(rbthree.isSelected()==true)
+            givenRating = 3;
+        if(rbfour.isSelected()==true)
+            givenRating = 4;
+        if(rbfive.isSelected()==true)
+            givenRating = 5;
+
+        if (givenRating == 0 || feedback == "")
+            this.feedbackWarning.setText("*rating required");
+        else{
+            this.thankyouFeedback.setText("Thank you for your feedback!");
+            this.feedbackWarning.setText("");
+            this.feedbackText.setText("");
+            SendFeedbackModel.sendFeedback(username,feedback,givenRating);
+        }
+    }
+
+    @FXML
+    private void showServiceRating(ActionEvent event) {
+        System.out.println("aaa");
+    }
 
 }

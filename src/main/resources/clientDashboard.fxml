@@ -108,27 +108,57 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
                      <children>
-                        <TextArea layoutX="73.0" layoutY="106.0" prefHeight="200.0" prefWidth="460.0" />
-                        <Label layoutX="73.0" layoutY="363.0" prefHeight="20.0" prefWidth="138.0" text="Rate our services">
+                        <TextArea fx:id="feedbackText" layoutX="73.0" layoutY="106.0" prefHeight="200.0" prefWidth="460.0" />
+                        <Label layoutX="73.0" layoutY="360.0" prefHeight="20.0" prefWidth="138.0" text="Rate our services">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="73.0" layoutY="60.0" prefHeight="18.0" prefWidth="242.0" text="Please leave your opinion here">
+                        <Label layoutX="73.0" layoutY="58.0" prefHeight="18.0" prefWidth="242.0" text="Please leave your opinion here:">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <RadioButton fx:id="rbone" layoutX="211.0" layoutY="364.0" mnemonicParsing="false" text="1">
+                        <RadioButton fx:id="rbone" layoutX="236.0" layoutY="364.0" mnemonicParsing="false" text="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="tgRate" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="rbtwo" layoutX="315.0" layoutY="364.0" mnemonicParsing="false" text="2" toggleGroup="$tgRate" />
-                        <RadioButton fx:id="rbthree" layoutX="429.0" layoutY="364.0" mnemonicParsing="false" text="3" toggleGroup="$tgRate" />
-                        <RadioButton fx:id="rbfour" layoutX="544.0" layoutY="364.0" mnemonicParsing="false" text="4" toggleGroup="$tgRate" />
-                        <RadioButton fx:id="rbfive" layoutX="662.0" layoutY="364.0" mnemonicParsing="false" text="5" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbtwo" layoutX="289.0" layoutY="364.0" mnemonicParsing="false" text="2" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbthree" layoutX="341.0" layoutY="364.0" mnemonicParsing="false" text="3" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbfour" layoutX="393.0" layoutY="364.0" mnemonicParsing="false" text="4" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbfive" layoutX="440.0" layoutY="364.0" mnemonicParsing="false" text="5" toggleGroup="$tgRate" />
                         <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout" style="-fx-border-color: ff0000;" text="Log out" />
+                        <Button layoutX="73.0" layoutY="430.0" mnemonicParsing="false" onAction="#sendFeedback2" style="-fx-background-color: #009292;" text="Send feedback" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="642.0" layoutY="106.0" mnemonicParsing="false" onAction="#showServiceRating" style="-fx-background-color: #009292;" text="Show rating" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="thankyouFeedback" layoutX="238.0" layoutY="431.0" prefHeight="27.0" prefWidth="233.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="73.0" layoutY="34.0" prefHeight="26.0" prefWidth="430.0" text="We are always looking for ways to improve our services.">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ratingNumber" layoutX="668.0" layoutY="147.0">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="feedbackWarning" layoutX="495.0" layoutY="363.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
                </content>
             </Tab>
