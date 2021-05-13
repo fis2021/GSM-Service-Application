@@ -5,14 +5,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import dbUtil.dbConnect;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import javax.xml.transform.Result;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Observable;
@@ -119,6 +122,22 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TextField progressInput;
 
+    @FXML
+    private TabPane managerTabPane;
+
+    //feedback table
+
+    @FXML
+    private TableView<FeedbackData> feedbacktable;
+
+    @FXML
+    private TableColumn<FeedbackData, Integer> feedRating;
+
+    @FXML
+    private TableColumn<FeedbackData, String> feedFeedback;
+
+    @FXML
+    private TableColumn<FeedbackData, String> feedUsername;
 
     //buttons
 
@@ -129,10 +148,12 @@ public class ManagerDashboardController implements Initializable {
     private ObservableList<RequestData> data;
     private ObservableList<RequestData> data2;
     private ObservableList<RequestData> data3;
+    private ObservableList<FeedbackData> data4;
 
     private String sql = "SELECT * FROM requests WHERE status LIKE 'Pending'";
     private String sql2 = "SELECT * FROM requests WHERE status LIKE 'Accepted'";
     private String sql3 = "SELECT * FROM requests WHERE status LIKE 'Refused'";
+    private String sql4 = "SELECT * FROM feedback";
 
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
@@ -302,4 +323,41 @@ public class ManagerDashboardController implements Initializable {
         }
     }
 
+    @FXML
+    private void logout2(ActionEvent event) {
+        try{
+            Stage stage = (Stage)managerTabPane.getScene().getWindow();
+            Parent viewLoginPage = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(viewLoginPage);
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void loadFeedback(ActionEvent event) throws SQLException {
+        try{
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            this.data4 = FXCollections.observableArrayList();
+
+            ResultSet rs = conn.createStatement().executeQuery(sql4);
+            while(rs.next()){
+                this.data4.add(new FeedbackData(rs.getString(1),rs.getString(2),rs.getInt(3)));
+
+            }
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+
+        this.feedUsername.setCellValueFactory(new PropertyValueFactory<FeedbackData,String>("username"));
+        this.feedFeedback.setCellValueFactory(new PropertyValueFactory<FeedbackData,String>("review"));
+        this.feedRating.setCellValueFactory(new PropertyValueFactory<FeedbackData,Integer>("rating"));
+
+        this.feedbacktable.setItems(null);
+        this.feedbacktable.setItems(this.data4);
+    }
 }
