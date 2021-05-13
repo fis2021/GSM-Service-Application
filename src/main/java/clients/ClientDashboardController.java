@@ -20,8 +20,10 @@ import managers.RequestData;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class ClientDashboardController implements Initializable {
@@ -105,6 +107,7 @@ public class ClientDashboardController implements Initializable {
     private dbConnect dc;
     private ObservableList<RequestData> data4;
     private String sql4 = "SELECT * FROM requests WHERE username=\'"+Config.loggedUsername+"\'";
+    private String sql5 = "SELECT AVG(rating) FROM feedback";
 
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
@@ -139,6 +142,7 @@ public class ClientDashboardController implements Initializable {
 
         this.requeststable.setItems(null);
         this.requeststable.setItems(this.data4);
+        dbConnect.closeConnection();
     }
 
     public void sendRequest(ActionEvent event) throws SQLException {
@@ -164,6 +168,7 @@ public class ClientDashboardController implements Initializable {
 
         SendRequestModel.sendRequest(username,brand,model,problem,interval,status,progress);
         loadRequestsData(event);
+        dbConnect.closeConnection();
 
     }
 
@@ -204,12 +209,39 @@ public class ClientDashboardController implements Initializable {
             this.feedbackWarning.setText("");
             this.feedbackText.setText("");
             SendFeedbackModel.sendFeedback(username,feedback,givenRating);
+            dbConnect.closeConnection();
+            showServiceRating(event);
+
         }
     }
 
-    @FXML
-    private void showServiceRating(ActionEvent event) {
-        System.out.println("aaa");
+
+    private double roundTwoDecimals(double d) {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
     }
+    private PreparedStatement pst;
+    private ResultSet rs;
+    @FXML
+    private void showServiceRating(ActionEvent event) throws SQLException {
+        try{
+            PreparedStatement pst;
+            ResultSet rs;
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            pst = conn.prepareStatement(sql5);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                String avg = rs.getString("avg(rating)");
+                double i = Float.parseFloat(avg);
+                double z = roundTwoDecimals(i);
+                String a = Double.toString(z);
+                this.ratingNumber.setText(a);
+                dbConnect.closeConnection();
+            }
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+    }
+
 
 }
