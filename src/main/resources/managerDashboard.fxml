@@ -145,6 +145,31 @@
                         </AnchorPane>
                     </content>
                 </Tab>
+            <Tab text="Feedback">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
+                     <children>
+                        <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="842.0">
+                           <children>
+                              <TableView fx:id="feedbacktable" prefHeight="623.0" prefWidth="847.0">
+                                 <columns>
+                                    <TableColumn fx:id="feedUsername" prefWidth="122.4000244140625" text="Username" />
+                                    <TableColumn fx:id="feedFeedback" prefWidth="642.3999786376953" text="Feedback" />
+                                    <TableColumn fx:id="feedRating" prefWidth="76.0" text="Rating" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <Button fx:id="load1" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadFeedback" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Feedback" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
             </tabs>
         </TabPane>
     </children>
