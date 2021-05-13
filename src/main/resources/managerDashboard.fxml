@@ -166,6 +166,16 @@
                            </font>
                         </Button>
                         <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
+                        <Button layoutX="961.0" layoutY="136.0" mnemonicParsing="false" onAction="#showRating" prefHeight="30.0" prefWidth="111.0" style="-fx-background-color: #009292;" text="Show rating" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="rating" layoutX="986.0" layoutY="180.0">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>

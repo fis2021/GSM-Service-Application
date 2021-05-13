@@ -18,6 +18,7 @@ import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -139,6 +140,8 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TableColumn<FeedbackData, String> feedUsername;
 
+    @FXML
+    private Label rating;
     //buttons
 
     @FXML
@@ -154,6 +157,7 @@ public class ManagerDashboardController implements Initializable {
     private String sql2 = "SELECT * FROM requests WHERE status LIKE 'Accepted'";
     private String sql3 = "SELECT * FROM requests WHERE status LIKE 'Refused'";
     private String sql4 = "SELECT * FROM feedback";
+    private String sqlRating = "SELECT AVG(rating) FROM feedback";
 
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
@@ -359,5 +363,30 @@ public class ManagerDashboardController implements Initializable {
 
         this.feedbacktable.setItems(null);
         this.feedbacktable.setItems(this.data4);
+    }
+
+    private double roundTwoDecimals(double d) {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
+    }
+    @FXML
+    private void showRating(ActionEvent event) throws SQLException {
+        try{
+            PreparedStatement pst;
+            ResultSet rs;
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            pst = conn.prepareStatement(sqlRating);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                String avg = rs.getString("avg(rating)");
+                double i = Float.parseFloat(avg);
+                double z = roundTwoDecimals(i);
+                String a = Double.toString(z);
+                this.rating.setText(a);
+                dbConnect.closeConnection();
+            }
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
     }
 }
