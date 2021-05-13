@@ -149,14 +149,13 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
                      <children>
-                        <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="655.0">
+                        <HBox layoutX="15.0" layoutY="136.0" prefHeight="623.0" prefWidth="842.0">
                            <children>
-                              <TableView fx:id="feedbacktable" prefHeight="623.0" prefWidth="656.0">
+                              <TableView fx:id="feedbacktable" prefHeight="623.0" prefWidth="847.0">
                                  <columns>
-                                    <TableColumn fx:id="feedId" prefWidth="61.600003242492676" text="ID" />
                                     <TableColumn fx:id="feedUsername" prefWidth="122.4000244140625" text="Username" />
-                                    <TableColumn fx:id="feedFeedback" prefWidth="401.5999298095703" text="Feedback" />
-                                    <TableColumn fx:id="feedRating" prefWidth="68.00006103515625" text="Rating" />
+                                    <TableColumn fx:id="feedFeedback" prefWidth="642.3999786376953" text="Feedback" />
+                                    <TableColumn fx:id="feedRating" prefWidth="76.0" text="Rating" />
                                  </columns>
                               </TableView>
                            </children>
