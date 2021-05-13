@@ -125,6 +125,20 @@ public class ManagerDashboardController implements Initializable {
     @FXML
     private TabPane managerTabPane;
 
+    //feedback table
+
+    @FXML
+    private TableView<FeedbackData> feedbacktable;
+
+    @FXML
+    private TableColumn<FeedbackData, Integer> feedRating;
+
+    @FXML
+    private TableColumn<FeedbackData, String> feedFeedback;
+
+    @FXML
+    private TableColumn<FeedbackData, String> feedUsername;
+
     //buttons
 
     @FXML
@@ -134,10 +148,12 @@ public class ManagerDashboardController implements Initializable {
     private ObservableList<RequestData> data;
     private ObservableList<RequestData> data2;
     private ObservableList<RequestData> data3;
+    private ObservableList<FeedbackData> data4;
 
     private String sql = "SELECT * FROM requests WHERE status LIKE 'Pending'";
     private String sql2 = "SELECT * FROM requests WHERE status LIKE 'Accepted'";
     private String sql3 = "SELECT * FROM requests WHERE status LIKE 'Refused'";
+    private String sql4 = "SELECT * FROM feedback";
 
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnect();
@@ -319,5 +335,29 @@ public class ManagerDashboardController implements Initializable {
         }catch (IOException ex){
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    private void loadFeedback(ActionEvent event) throws SQLException {
+        try{
+            Connection conn = dbConnect.connect(Config.SQCONN);
+            this.data4 = FXCollections.observableArrayList();
+
+            ResultSet rs = conn.createStatement().executeQuery(sql4);
+            while(rs.next()){
+                this.data4.add(new FeedbackData(rs.getString(1),rs.getString(2),rs.getInt(3)));
+
+            }
+
+        }catch (SQLException e){
+            System.err.println("Error"+ e);
+        }
+
+        this.feedUsername.setCellValueFactory(new PropertyValueFactory<FeedbackData,String>("username"));
+        this.feedFeedback.setCellValueFactory(new PropertyValueFactory<FeedbackData,String>("review"));
+        this.feedRating.setCellValueFactory(new PropertyValueFactory<FeedbackData,Integer>("rating"));
+
+        this.feedbacktable.setItems(null);
+        this.feedbacktable.setItems(this.data4);
     }
 }
