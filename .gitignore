@@ -27,5 +27,5 @@ hs_err_pid*
 .gradle
 **/build/
 !src/**/build/
-
+!gradle/wrapper/*
 .java-version

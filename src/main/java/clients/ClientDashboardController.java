@@ -202,7 +202,7 @@ public class ClientDashboardController implements Initializable {
         if(rbfive.isSelected()==true)
             givenRating = 5;
 
-        if (givenRating == 0 || feedback == "")
+        if (givenRating == 0)
             this.feedbackWarning.setText("*rating required");
         else{
             this.thankyouFeedback.setText("Thank you for your feedback!");
@@ -211,7 +211,6 @@ public class ClientDashboardController implements Initializable {
             SendFeedbackModel.sendFeedback(username,feedback,givenRating);
             dbConnect.closeConnection();
             showServiceRating(event);
-
         }
     }
 

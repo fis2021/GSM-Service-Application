@@ -1,3 +1,4 @@
+import com.sun.javafx.runtime.VersionInfo;
 import dbUtil.Select;
 //import dbUtil.dbConnection;
 import gsmapp.SignupModel;
@@ -22,6 +23,5 @@ public class Main extends Application {
         primaryStage.setTitle("GSM Service");
         primaryStage.setScene(scene);
         primaryStage.show();
-//        SignupModel.registerUser("ana","are","mere","hello","world","cioaca");
    }
 }
