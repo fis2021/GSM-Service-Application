@@ -23,7 +23,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
                      <children>
-                        <Button fx:id="loadRequestsData" layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#loadRequestsData" style="-fx-background-color: #009292;" text="Load My Requests" textFill="WHITE">
+                        <Button fx:id="loadRequestsData" id="loadRequestData" layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#loadRequestsData" style="-fx-background-color: #009292;" text="Load My Requests" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -45,7 +45,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Send a request">
+            <Tab text="Send a request" id="sendRequest">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
                      <children>
@@ -74,10 +74,10 @@
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="brandInput" layoutX="232.0" layoutY="181.0" prefHeight="26.0" prefWidth="250.0" />
-                        <TextField fx:id="modelInput" layoutX="232.0" layoutY="268.0" prefHeight="26.0" prefWidth="250.0" />
-                        <TextField fx:id="timeslotInput" layoutX="232.0" layoutY="508.0" prefHeight="26.0" prefWidth="250.0" />
-                        <Button fx:id="sendRequestButton" layoutX="292.0" layoutY="604.0" mnemonicParsing="false" onAction="#sendRequest" style="-fx-background-color: #009292;" text="Send my request" textFill="WHITE">
+                        <TextField fx:id="brandInput" id="brandInput" layoutX="232.0" layoutY="181.0" prefHeight="26.0" prefWidth="250.0" />
+                        <TextField fx:id="modelInput" id="modelInput" layoutX="232.0" layoutY="268.0" prefHeight="26.0" prefWidth="250.0" />
+                        <TextField fx:id="timeslotInput" id="timeslotInput" layoutX="232.0" layoutY="508.0" prefHeight="26.0" prefWidth="250.0" />
+                        <Button fx:id="sendRequestButton" id="sendRequestButton" layoutX="292.0" layoutY="604.0" mnemonicParsing="false" onAction="#sendRequest" style="-fx-background-color: #009292;" text="Send my request" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -87,14 +87,14 @@
                               <Image url="@../../../images/logo.png" />
                            </image>
                         </ImageView>
-                        <TextArea fx:id="problemInput" layoutX="234.0" layoutY="344.0" prefHeight="112.0" prefWidth="250.0" />
+                        <TextArea fx:id="problemInput" id="problemInput" layoutX="234.0" layoutY="344.0" prefHeight="112.0" prefWidth="250.0" />
                         <Label layoutX="234.0" layoutY="539.0" prefHeight="18.0" prefWidth="185.0" text="Eg.: M-W 14:00-17:00" />
-                        <Label fx:id="thankYouLabel" layoutX="243.0" layoutY="676.0" prefHeight="27.0" prefWidth="226.0">
+                        <Label fx:id="thankYouLabel" id="thankYouLabel" layoutX="243.0" layoutY="676.0" prefHeight="27.0" prefWidth="226.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="requestWarningLabel" layoutX="264.0" layoutY="144.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
+                        <Label fx:id="requestWarningLabel" id="requestWarningLabel" layoutX="264.0" layoutY="144.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
                            <font>
                               <Font size="14.0" />
                            </font>
