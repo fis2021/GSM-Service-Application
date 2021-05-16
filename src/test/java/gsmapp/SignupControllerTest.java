@@ -123,35 +123,6 @@ class SignupControllerTest {
 
     }
 
-    @Test
-    void testUsernameAlreadyInDatabase(FxRobot robot) {
-
-        robot.clickOn("#fnameInput");
-        robot.write("Mariaaa");
-
-        robot.clickOn("#lnameInput");
-        robot.write("Aaairam");
-
-        robot.clickOn("#usernameInput");
-        robot.write("mariaaa");
-
-        robot.clickOn("#passwordInput");
-        robot.write("mariamaria");
-
-        robot.clickOn("#confirmPassInput");
-        robot.write("mariamaria");
-
-        robot.clickOn("#comboboxInput");
-        robot.clickOn("Manager");
-
-        robot.clickOn("#codeInput");
-        robot.write("1234");
-
-        robot.clickOn("#createAcc");
-
-        FxAssert.verifyThat("#usernameWarning", LabeledMatchers.hasText("Username already exists!"));
-
-    }
 
     @Test
     void testIncorrectAccessCode(FxRobot robot) {

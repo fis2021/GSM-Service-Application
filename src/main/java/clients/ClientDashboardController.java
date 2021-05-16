@@ -164,6 +164,10 @@ public class ClientDashboardController implements Initializable {
         {
             this.thankYouLabel.setText("Thank you for choosing us!");
             this.requestWarningLabel.setText("");
+            this.brandInput.setText("");
+            this.modelInput.setText("");
+            this.problemInput.setText("");
+            this.timeslotInput.setText("");
         }
 
         SendRequestModel.sendRequest(username,brand,model,problem,interval,status,progress);
