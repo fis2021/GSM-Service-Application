@@ -39,8 +39,6 @@ public class SignupModel {
             return "0";
         }
         else {
-            //afisezi in interfata
-            //System.out.println("CONTUL EXISTA DEJA");
             return "1";
         }
 

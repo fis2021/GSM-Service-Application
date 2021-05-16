@@ -29,7 +29,7 @@
         </SubScene>
         <TabPane fx:id="managerTabPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f3f0b3;" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab text="Pending requests">
+                <Tab text="Pending requests" id="pendingRequests">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
                             <children>
@@ -49,28 +49,28 @@
                                         </TableView>
                                     </children>
                                 </HBox>
-                                <Button layoutX="222.0" layoutY="83.0" mnemonicParsing="false" onAction="#acceptRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
+                                <Button layoutX="222.0" layoutY="83.0" mnemonicParsing="false" onAction="#acceptRequest" id="acceptRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Accept" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="328.0" layoutY="84.0" mnemonicParsing="false" onAction="#refuseRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Refuse" textFill="WHITE">
+                                <Button layoutX="328.0" layoutY="84.0" mnemonicParsing="false" onAction="#refuseRequest" id="refuseRequest" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #009292;" text="Refuse" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="load" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadPendingData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Pending Requests" textFill="WHITE">
+                                <Button fx:id="load" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadPendingData" id="loadPendingRequests" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Pending Requests" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font></Button>
-                                <TextField fx:id="requestid" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
+                                <TextField fx:id="requestid" id="pendingRequestId" layoutX="116.0" layoutY="86.0" prefHeight="26.0" prefWidth="67.0" />
                                 <Label layoutX="32.0" layoutY="90.0" text="Request ID" />
                                 <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Accepted requests">
+                <Tab text="Accepted requests" id="acceptedRequests">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -90,23 +90,23 @@
                                         </TableView>
                                     </children>
                                 </HBox>
-                                <Button fx:id="loadaccepted" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadAcceptedData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Accepted Requests" textFill="WHITE">
+                                <Button fx:id="loadaccepted" id="loadAccepted" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadAcceptedData" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #009292;" text="Load Accepted Requests" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font></Button>
                                 <Label layoutX="714.0" layoutY="90.0" text="Request ID" />
                                 <Label layoutX="290.0" layoutY="90.0" text="Appointment Time" />
-                                <Button layoutX="934.0" layoutY="83.0" mnemonicParsing="false" onAction="#updateTimeSlot" style="-fx-background-color: #009292;" text="Update Time Slot" textFill="WHITE">
+                                <Button layoutX="934.0" layoutY="83.0" mnemonicParsing="false" onAction="#updateTimeSlot" id="updateTimeslot" style="-fx-background-color: #009292;" text="Update Time Slot" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font></Button>
-                                <TextField fx:id="acceptedid" layoutX="815.0" layoutY="85.0" prefHeight="26.0" prefWidth="67.0" />
-                                <TextField fx:id="apptime" layoutX="445.0" layoutY="85.0" prefHeight="26.0" prefWidth="220.0" />
+                                <TextField fx:id="acceptedid" id="acceptedid" layoutX="815.0" layoutY="85.0" prefHeight="26.0" prefWidth="67.0" />
+                                <TextField fx:id="apptime" id="apptime" layoutX="445.0" layoutY="85.0" prefHeight="26.0" prefWidth="220.0" />
                                 <Label layoutX="290.0" layoutY="49.0" text="Current Progress" />
-                                <TextField fx:id="progressInput" layoutX="445.0" layoutY="46.0" prefHeight="26.0" prefWidth="220.0" />
+                                <TextField fx:id="progressInput" id="progressInput" layoutX="445.0" layoutY="46.0" prefHeight="26.0" prefWidth="220.0" />
                                 <Label layoutX="714.0" layoutY="50.0" text="Request ID" />
-                                <TextField fx:id="acceptedid1" layoutX="815.0" layoutY="46.0" prefHeight="26.0" prefWidth="67.0" />
-                                <Button layoutX="934.0" layoutY="44.0" mnemonicParsing="false" onAction="#updateProgress" prefHeight="29.6" prefWidth="133.6" style="-fx-background-color: #009292;" text="Update Progress" textFill="WHITE">
+                                <TextField fx:id="acceptedid1" id="acceptedid1" layoutX="815.0" layoutY="46.0" prefHeight="26.0" prefWidth="67.0" />
+                                <Button layoutX="934.0" layoutY="44.0" mnemonicParsing="false" onAction="#updateProgress" id="updateProgress" prefHeight="29.6" prefWidth="133.6" style="-fx-background-color: #009292;" text="Update Progress" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -145,7 +145,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-            <Tab text="Feedback">
+            <Tab text="Feedback" id="managerFeedback">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="950.0">
                      <children>
@@ -165,13 +165,13 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" style="-fx-border-color: ff0000;" text="Log out" />
-                        <Button layoutX="961.0" layoutY="136.0" mnemonicParsing="false" onAction="#showRating" prefHeight="30.0" prefWidth="111.0" style="-fx-background-color: #009292;" text="Show rating" textFill="WHITE">
+                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout2" id="managerLogout" style="-fx-border-color: ff0000;" text="Log out" />
+                        <Button layoutX="961.0" layoutY="136.0" mnemonicParsing="false" onAction="#showRating" id="managerShowRating" prefHeight="30.0" prefWidth="111.0" style="-fx-background-color: #009292;" text="Show rating" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Label fx:id="rating" layoutX="986.0" layoutY="180.0">
+                        <Label fx:id="rating" id="managerRating" layoutX="986.0" layoutY="180.0">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>

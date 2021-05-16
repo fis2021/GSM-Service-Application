@@ -12,6 +12,11 @@ public class dbConnect {
 
 
     public synchronized static Connection connect(String dbPath)   {
+        if(!dbPath.endsWith(".sqlite")){
+
+            throw  new Not_A_DB_File();
+        }
+
         try {
             // db parameters
             // create a connection to the database

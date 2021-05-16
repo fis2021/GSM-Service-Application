@@ -2,7 +2,8 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'jacoco'
 }
 
 javafx {
@@ -13,22 +14,43 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = 10
+targetCompatibility = 10
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'org.openjfx:javafx-controls:15.0.1'
     implementation 'org.openjfx:javafx-fxml:15.0.1'
     compile group:'org.xerial', name:'sqlite-jdbc', version:'3.27.2.1'
+
+    testCompile 'org.testfx:testfx-core:4.0.16-alpha'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+    testCompile 'org.testfx:testfx-junit5:4.0.16-alpha'
+
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
 }
 
 test {
     useJUnitPlatform()
 }
-mainClassName = 'Main';
+mainClassName = 'Main'
+
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
