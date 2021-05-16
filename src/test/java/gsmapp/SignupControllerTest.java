@@ -9,9 +9,11 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import org.testfx.matcher.control.LabeledMatchers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -116,7 +118,8 @@ class SignupControllerTest {
 
         robot.clickOn("#createAcc");
 
-        verifyThat("#passNotMatchLabel", isVisible());
+        FxAssert.verifyThat("#passNotMatchLabel", LabeledMatchers.hasText("Passwords do not match!"));
+
 
     }
 
@@ -146,7 +149,7 @@ class SignupControllerTest {
 
         robot.clickOn("#createAcc");
 
-        verifyThat("#usernameWarning", isVisible());
+        FxAssert.verifyThat("#usernameWarning", LabeledMatchers.hasText("Username already exists!"));
 
     }
 }

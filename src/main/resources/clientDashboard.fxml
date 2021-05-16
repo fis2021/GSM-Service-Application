@@ -104,11 +104,11 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Feedback">
+            <Tab text="Feedback" id="Feedback">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: f3f0b3;">
                      <children>
-                        <TextArea fx:id="feedbackText" layoutX="73.0" layoutY="106.0" prefHeight="200.0" prefWidth="460.0" />
+                        <TextArea fx:id="feedbackText" id="feedbackText" layoutX="73.0" layoutY="106.0" prefHeight="200.0" prefWidth="460.0" />
                         <Label layoutX="73.0" layoutY="360.0" prefHeight="20.0" prefWidth="138.0" text="Rate our services">
                            <font>
                               <Font name="System Bold" size="16.0" />
@@ -126,20 +126,20 @@
                         </RadioButton>
                         <RadioButton fx:id="rbtwo" layoutX="289.0" layoutY="364.0" mnemonicParsing="false" text="2" toggleGroup="$tgRate" />
                         <RadioButton fx:id="rbthree" layoutX="341.0" layoutY="364.0" mnemonicParsing="false" text="3" toggleGroup="$tgRate" />
-                        <RadioButton fx:id="rbfour" layoutX="393.0" layoutY="364.0" mnemonicParsing="false" text="4" toggleGroup="$tgRate" />
+                        <RadioButton fx:id="rbfour" id="rbfour" layoutX="393.0" layoutY="364.0" mnemonicParsing="false" text="4" toggleGroup="$tgRate" />
                         <RadioButton fx:id="rbfive" layoutX="440.0" layoutY="364.0" mnemonicParsing="false" text="5" toggleGroup="$tgRate" />
-                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout" style="-fx-border-color: ff0000;" text="Log out" />
-                        <Button layoutX="73.0" layoutY="430.0" mnemonicParsing="false" onAction="#sendFeedback2" style="-fx-background-color: #009292;" text="Send feedback" textFill="WHITE">
+                        <Button layoutX="1104.0" mnemonicParsing="false" onAction="#logout" id="logout" style="-fx-border-color: ff0000;" text="Log out" />
+                        <Button layoutX="73.0" layoutY="430.0" mnemonicParsing="false" onAction="#sendFeedback2" id="sendFeedback2" style="-fx-background-color: #009292;" text="Send feedback" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="642.0" layoutY="106.0" mnemonicParsing="false" onAction="#showServiceRating" style="-fx-background-color: #009292;" text="Show rating" textFill="WHITE">
+                        <Button layoutX="642.0" layoutY="106.0" mnemonicParsing="false" onAction="#showServiceRating" id="showServiceRating" style="-fx-background-color: #009292;" text="Show rating" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Label fx:id="thankyouFeedback" layoutX="238.0" layoutY="431.0" prefHeight="27.0" prefWidth="233.0">
+                        <Label fx:id="thankyouFeedback" id="thankYouFeedback" layoutX="238.0" layoutY="431.0" prefHeight="27.0" prefWidth="233.0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -149,12 +149,12 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="ratingNumber" layoutX="668.0" layoutY="147.0">
+                        <Label fx:id="ratingNumber" id="ratingNumber" layoutX="668.0" layoutY="147.0">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="feedbackWarning" layoutX="495.0" layoutY="363.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
+                        <Label fx:id="feedbackWarning" id="feedbackWarning" layoutX="495.0" layoutY="363.0" prefHeight="20.0" prefWidth="189.0" textFill="#f71500">
                            <font>
                               <Font size="14.0" />
                            </font>

@@ -7,9 +7,11 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import org.testfx.matcher.control.LabeledMatchers;
 
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +34,7 @@ class MainTest {
     }
 
     @Test
-    void testLogin(FxRobot robot) {
+    void testLoginClient(FxRobot robot) {
         robot.clickOn("#username");
         robot.write("aaaaaa");
 
@@ -48,6 +50,27 @@ class MainTest {
         robot.clickOn("#loginButton");
         Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM users WHERE username = " + "\'" + user + "\'"),"1");
 
+        verifyThat("#Feedback",isVisible());
+    }
+
+    @Test
+    void testLoginManager(FxRobot robot) {
+        robot.clickOn("#username");
+        robot.write("xxxxxx");
+
+        robot.clickOn("#password");
+        robot.write("xxxxxx");
+
+        robot.clickOn("#role");
+
+        robot.clickOn("Manager");
+
+        String user="xxxxxx";
+
+        robot.clickOn("#loginButton");
+        Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM users WHERE username = " + "\'" + user + "\'"),"1");
+
+        verifyThat("#pendingRequests",isVisible());
     }
 
     @Test
@@ -68,6 +91,7 @@ class MainTest {
 
         Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM users WHERE username = " + "\'" + user + "\'"),"0");
 
-        verifyThat("#loginMessageLabel", isVisible());
+        FxAssert.verifyThat("#loginMessageLabel", LabeledMatchers.hasText("Wrong credentials"));
+
     }
 }

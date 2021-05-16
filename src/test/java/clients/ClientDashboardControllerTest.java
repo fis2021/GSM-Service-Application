@@ -9,13 +9,17 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.platform.commons.util.StringUtils;
+import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import org.testfx.matcher.control.LabeledMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.assertions.api.Assertions.assertThat;
+import static org.testfx.matcher.control.ListViewMatchers.isEmpty;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 
 @ExtendWith(ApplicationExtension.class)
@@ -67,7 +71,7 @@ class ClientDashboardControllerTest {
         String timeslot = "M-W 12:00-14:00";
         Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM requests WHERE interval = " + "\'" + timeslot + "\'"),"1");
 
-        verifyThat("#thankYouLabel", isVisible());
+        FxAssert.verifyThat("#thankYouLabel", LabeledMatchers.hasText("Thank you for choosing us!"));
     }
 
     @Test
@@ -85,6 +89,62 @@ class ClientDashboardControllerTest {
 
         robot.clickOn("#sendRequestButton");
 
-        verifyThat("#requestWarningLabel", isVisible());
+        FxAssert.verifyThat("#requestWarningLabel", LabeledMatchers.hasText("*all fields are required!"));
     }
+
+
+    @Test
+    void testSendFeedback(FxRobot robot) {
+        robot.clickOn("#Feedback");
+
+        robot.clickOn("#feedbackText");
+        robot.write("Best service in town!");
+
+        robot.clickOn("#rbfour");
+
+        robot.clickOn("#sendFeedback2");
+
+        String review = "Best service in town!";
+        Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM feedback WHERE review = " + "\'" + review + "\'"),"1");
+
+        FxAssert.verifyThat("#thankYouFeedback", LabeledMatchers.hasText("Thank you for your feedback!"));
+        assertThat("#ratingNumber").isNotEmpty();
+    }
+
+    @Test
+    void testSendFeedbackNoRatingSelected(FxRobot robot) {
+        robot.clickOn("#Feedback");
+
+        robot.clickOn("#feedbackText");
+        robot.write("Great work!");
+
+        robot.clickOn("#sendFeedback2");
+
+        String review = "Great work!";
+        Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM feedback WHERE review = " + "\'" + review + "\'"),"0");
+
+        FxAssert.verifyThat("#feedbackWarning", LabeledMatchers.hasText("*rating required"));
+        FxAssert.verifyThat("#ratingNumber", LabeledMatchers.hasText(""));
+
+    }
+
+    @Test
+    void testViewRating(FxRobot robot) {
+        robot.clickOn("#Feedback");
+
+        robot.clickOn("#showServiceRating");
+
+        assertThat("#ratingNumber").isNotEmpty();
+    }
+
+    @Test
+    void testLogOutButton(FxRobot robot) {
+        robot.clickOn("#Feedback");
+
+        robot.clickOn("#logout");
+
+        verifyThat("#username",isVisible());
+
+    }
+
 }
