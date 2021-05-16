@@ -152,4 +152,181 @@ class SignupControllerTest {
         FxAssert.verifyThat("#usernameWarning", LabeledMatchers.hasText("Username already exists!"));
 
     }
+
+    @Test
+    void testIncorrectAccessCode(FxRobot robot) {
+
+        robot.clickOn("#fnameInput");
+        robot.write("Denisa");
+
+        robot.clickOn("#lnameInput");
+        robot.write("Lunga");
+
+        robot.clickOn("#usernameInput");
+        robot.write("DenisaLunga");
+
+        robot.clickOn("#passwordInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#confirmPassInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#comboboxInput");
+        robot.clickOn("Manager");
+
+        robot.clickOn("#codeInput");
+        robot.write("1235");
+
+        robot.clickOn("#createAcc");
+
+        FxAssert.verifyThat("#accessWarning", LabeledMatchers.hasText("*incorrect access code"));
+
+    }
+
+    @Test
+    void testUsernameTooShort(FxRobot robot) {
+
+        robot.clickOn("#fnameInput");
+        robot.write("Denisa");
+
+        robot.clickOn("#lnameInput");
+        robot.write("Lunga");
+
+        robot.clickOn("#usernameInput");
+        robot.write("De");
+
+        robot.clickOn("#passwordInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#confirmPassInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#comboboxInput");
+        robot.clickOn("Manager");
+
+        robot.clickOn("#codeInput");
+        robot.write("1234");
+
+        robot.clickOn("#createAcc");
+
+        FxAssert.verifyThat("#usernameWarning", LabeledMatchers.hasText("*must have at least 4 characters"));
+
+    }
+
+    @Test
+    void testFirstNameTooShort(FxRobot robot) {
+
+        robot.clickOn("#fnameInput");
+        robot.write("");
+
+        robot.clickOn("#lnameInput");
+        robot.write("Lunga");
+
+        robot.clickOn("#usernameInput");
+        robot.write("Denisaaa");
+
+        robot.clickOn("#passwordInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#confirmPassInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#comboboxInput");
+        robot.clickOn("Manager");
+
+        robot.clickOn("#codeInput");
+        robot.write("1234");
+
+        robot.clickOn("#createAcc");
+
+        FxAssert.verifyThat("#firstNameWarning", LabeledMatchers.hasText("*first name is required"));
+
+    }
+
+    @Test
+    void testLastNameTooShort(FxRobot robot) {
+
+        robot.clickOn("#fnameInput");
+        robot.write("Denisa");
+
+        robot.clickOn("#lnameInput");
+        robot.write("");
+
+        robot.clickOn("#usernameInput");
+        robot.write("Denisaaa");
+
+        robot.clickOn("#passwordInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#confirmPassInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#comboboxInput");
+        robot.clickOn("Manager");
+
+        robot.clickOn("#codeInput");
+        robot.write("1234");
+
+        robot.clickOn("#createAcc");
+
+        FxAssert.verifyThat("#lastNameWarning", LabeledMatchers.hasText("*last name is required"));
+
+    }
+
+    @Test
+    void testPasswordTooShort(FxRobot robot) {
+
+        robot.clickOn("#fnameInput");
+        robot.write("Denisa");
+
+        robot.clickOn("#lnameInput");
+        robot.write("Lunga");
+
+        robot.clickOn("#usernameInput");
+        robot.write("Denisaaa");
+
+        robot.clickOn("#passwordInput");
+        robot.write("deni");
+
+        robot.clickOn("#confirmPassInput");
+        robot.write("deni");
+
+        robot.clickOn("#comboboxInput");
+        robot.clickOn("Manager");
+
+        robot.clickOn("#codeInput");
+        robot.write("1234");
+
+        robot.clickOn("#createAcc");
+
+        FxAssert.verifyThat("#passwordWarning", LabeledMatchers.hasText("*must have at least 6 characters"));
+
+    }
+
+    @Test
+    void testRoleNotSelected(FxRobot robot) {
+
+        robot.clickOn("#fnameInput");
+        robot.write("Denisa");
+
+        robot.clickOn("#lnameInput");
+        robot.write("Lunga");
+
+        robot.clickOn("#usernameInput");
+        robot.write("Denisaaa");
+
+        robot.clickOn("#passwordInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#confirmPassInput");
+        robot.write("denilunga");
+
+        robot.clickOn("#codeInput");
+        robot.write("1234");
+
+        robot.clickOn("#createAcc");
+
+        FxAssert.verifyThat("#roleWarning", LabeledMatchers.hasText("*role is required"));
+
+    }
 }

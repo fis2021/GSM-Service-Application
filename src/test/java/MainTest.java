@@ -1,5 +1,7 @@
 import Config.Config;
+import Encryption.MD5;
 import dbUtil.Select;
+import gsmapp.SignupModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,17 +37,21 @@ class MainTest {
 
     @Test
     void testLoginClient(FxRobot robot) {
+
         robot.clickOn("#username");
-        robot.write("aaaaaa");
+        robot.write("ghghghg");
 
         robot.clickOn("#password");
-        robot.write("aaaaaa");
+        robot.write("ghghghg");
+        String hashh = MD5.getMd5("ghghghg");
+
+        SignupModel.registerUser("ghghghg","ghghghg","ghghghg",hashh,"Client","");
 
         robot.clickOn("#role");
 
         robot.clickOn("Client");
 
-        String user="aaaaaa";
+        String user="ghghghg";
 
         robot.clickOn("#loginButton");
         Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM users WHERE username = " + "\'" + user + "\'"),"1");
@@ -55,17 +61,21 @@ class MainTest {
 
     @Test
     void testLoginManager(FxRobot robot) {
+
         robot.clickOn("#username");
-        robot.write("xxxxxx");
+        robot.write("dfdfdf");
 
         robot.clickOn("#password");
-        robot.write("xxxxxx");
+        robot.write("dfdfdf");
+        String hashh2 = MD5.getMd5("dfdfdf");
+
+        SignupModel.registerUser("dfdfdf","dfdfdf","dfdfdf",hashh2,"Manager","1234");
 
         robot.clickOn("#role");
 
         robot.clickOn("Manager");
 
-        String user="xxxxxx";
+        String user="dfdfdf";
 
         robot.clickOn("#loginButton");
         Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM users WHERE username = " + "\'" + user + "\'"),"1");

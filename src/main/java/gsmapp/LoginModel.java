@@ -31,13 +31,15 @@ public class LoginModel {
 
         String sql = "SELECT * FROM login where username = ? and password = ? and division = ?";
         String sql_check_username = "SELECT * FROM users WHERE username = " + "\'" + user + "\'";
+        String sql_check_user = "SELECT * FROM users WHERE username = " + "\'" + user + "\' " + " AND password = " + "\'" + pass + "\' " + " AND role = " + "\'" + opt + "\' ";
         String sql_check_password = "SELECT * FROM users WHERE password = " + "\'" + pass + "\'";
         String sql_check_role =  "SELECT * FROM users WHERE role = " + "\'" + opt + "\'";
         String checkgetUsername = Select.CheckEntry(Config.SQCONN, sql_check_username);
         String checkgetPassword = Select.CheckEntry(Config.SQCONN, sql_check_password);
         String checkgetRole = Select.CheckEntry(Config.SQCONN, sql_check_role);
+        String checkUser = Select.CheckEntry(Config.SQCONN, sql_check_user);
 
-        if(checkgetUsername == "1" && checkgetPassword == "1" && checkgetRole == "1") {
+        if(checkUser == "1") {
             return true;
         }
         else {

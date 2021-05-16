@@ -204,7 +204,7 @@ class ManagerDashboardControllerTest {
         robot.clickOn("#acceptedid");
         robot.write(max);
         robot.clickOn("#apptime");
-        robot.write("This is a test interval timeee");
+        robot.write("This is a test interval time");
         robot.clickOn("#updateTimeslot");
 
         Assertions.assertEquals(Select.CheckEntry(Config.SQCONN,"SELECT * FROM requests WHERE status = 'Accepted' AND interval = 'This is a test interval time'"),"1");
